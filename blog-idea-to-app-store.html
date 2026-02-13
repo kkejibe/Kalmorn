@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An honest account of the messy middle of product development — the part between the exciting prototype and the App Store launch.">
+  <title>From Idea to App Store: What Nobody Tells You About the Middle Part | Kalmorn Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div class="reading-progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+      <div class="navbar__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <section class="article-hero article-hero--amber">
+    <div class="article-hero__bg"></div>
+    <div class="article-hero__icon">
+      <svg width="320" height="320" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    </div>
+    <div class="container">
+      <div class="article-hero__content">
+        <div class="article-hero__meta">
+          <span class="article-hero__tag">Product</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__date">December 1, 2025</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__read-time">7 min read</span>
+        </div>
+        <h1>From Idea to App Store: What Nobody Tells You About the Middle Part</h1>
+        <p>The beginning is exciting. The end is rewarding. The middle is where products go to die.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="section">
+    <div class="blog-article">
+      <a href="blog.html" class="blog-article__back">&larr; Back to Blog</a>
+
+      <p class="blog-article__lead">There's a version of the product development story that gets told on podcasts and in blog posts. It goes something like: brilliant idea, scrappy team, rapid prototyping, launch, traction. Maybe a pivot somewhere in the middle for dramatic effect. It's tidy and it's motivating and it's about 20% of the actual experience.</p>
+
+      <p>The other 80%? That's the middle part. And it's where most products quietly die.</p>
+
+      <h2>The Beginning Is the Easy Part</h2>
+
+      <p>When we started building VOSS, the first few weeks were genuinely exciting. Architecture decisions felt important and consequential. The first wireframes came together fast. The initial prototype &mdash; basic, barely functional, but <em>real</em> &mdash; gave everyone a jolt of momentum.</p>
+
+      <p>"Look, it works. We're really doing this."</p>
+
+      <p>This phase is intoxicating. Every day feels like meaningful progress because you're starting from zero. Going from nothing to something always feels dramatic. The problem is that it creates an illusion: if the first 30% came together this fast, surely the rest will follow at the same pace.</p>
+
+      <p>It won't.</p>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>Welcome to the Middle</h2>
+
+      <p>The middle part of product development is where the glamour evaporates and the real work begins. Here's what the middle actually looked like for us:</p>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">The Reality</div>
+        <p><strong>Six weeks on an offline sync bug.</strong> VOSS needs to work reliably without network connectivity &mdash; clinicians use it in exam rooms, hospital basements, rural clinics. Our sync logic worked perfectly in testing. In production, with intermittent connectivity and interrupted writes, it broke in ways we didn't predict. Six weeks. One bug. No visible product improvement to show for it.</p>
+      </div>
+
+      <p><strong>The App Store rejection.</strong> Our first submission was rejected. Not for a code issue &mdash; for screenshot dimensions that didn't match Apple's current specifications. We'd used a template from a blog post that was six months out of date. Fix, resubmit, wait three days for re-review. It felt absurd. It was also completely our fault.</p>
+
+      <p><strong>The third redesign.</strong> There was a screen &mdash; the examination summary view &mdash; that was <em>correct</em> in every objective sense. It showed the right data, in the right structure, with the right interactions. But it didn't feel right. Two neurologists we tested with said the same thing independently: "I don't know what's wrong with it, but something is off." So we redesigned it. Twice more. The final version looked almost identical to the second version, with subtle spacing and hierarchy changes that took days to implement. But it <em>felt</em> right. And that mattered.</p>
+
+      <h2>The Emotional Landscape</h2>
+
+      <p>Nobody really talks about the emotional texture of the middle. So let us:</p>
+
+      <ul>
+        <li><strong>Doubt.</strong> Around month three, we had a team conversation that started with "are we sure this is the right approach?" and ended an hour later with "yes, but." The "but" lingered for weeks.</li>
+        <li><strong>Scope creep temptation.</strong> When the core product is in the painful middle, it's tempting to start thinking about new features, new markets, new directions. Anything that feels like forward motion instead of the grind. We had to actively resist this.</li>
+        <li><strong>The comparison trap.</strong> Other companies in adjacent spaces seemed to be shipping faster, launching bigger, growing quicker. Social media is a highlight reel. Knowing that intellectually doesn't make it feel better.</li>
+        <li><strong>Silent progress.</strong> Some of the most important work we did &mdash; security architecture, data model migrations, performance optimization &mdash; was completely invisible to anyone outside the team. No screenshots to share. No demos to give. Just better foundations.</li>
+      </ul>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>What Kept Us Going</h2>
+
+      <p>Honestly? Three things:</p>
+
+      <p><strong>User conversations.</strong> Every time we talked to a neurologist who said "yes, I need this" or "when can I use it?", the middle felt more bearable. Real demand is the best antidote to doubt.</p>
+
+      <p><strong>Small milestones.</strong> We stopped measuring progress by features shipped and started measuring it by problems eliminated. "We fixed the sync issue" became as worth celebrating as "we launched a new feature." Maybe more.</p>
+
+      <p><strong>Stubbornness.</strong> There's a version of persistence that's strategic and a version that's just refusing to quit. We'll be honest &mdash; both were in play. Sometimes you keep going not because you've run the numbers and the expected value is positive, but because you said you would and you're not done yet.</p>
+
+      <h2>The Other Side</h2>
+
+      <p>The day VOSS went live on the App Store, it didn't feel like we expected. There was no big bang moment. We submitted, waited for review, got approved, and then... it was live. Anticlimactic in the best way.</p>
+
+      <blockquote>
+        <p>The real reward came later. The first message from a neurologist who used it in an actual patient encounter. The first time someone said "this saved me time today." Those moments made the middle worth it.</p>
+      </blockquote>
+
+      <p>But they didn't erase it. The middle still happened. The sync bug still took six weeks. The rejection still stung. The redesigns still cost time and energy.</p>
+
+      <h2>Advice We'd Give Ourselves</h2>
+
+      <p>If we could go back to the start of the middle, we'd say:</p>
+
+      <ul>
+        <li><strong>Budget for it.</strong> The middle will take longer and cost more than you think. Plan for that explicitly &mdash; in your timeline, your budget, and your emotional reserves.</li>
+        <li><strong>Stay close to users.</strong> When you're deep in technical debt or edge case fixes, it's easy to lose sight of who you're building for. Regular user conversations are not optional.</li>
+        <li><strong>Ship ugly versions early.</strong> Our instinct was to polish before sharing. Wrong. The sooner something is in a user's hands &mdash; even rough &mdash; the faster you learn what matters and what doesn't.</li>
+        <li><strong>Celebrate the invisible work.</strong> Not everything that matters is visible. Security improvements, performance gains, architectural decisions &mdash; these deserve recognition even if they don't make for good tweets.</li>
+      </ul>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">The Takeaway</div>
+        <p>The middle is where products are actually built. The beginning is just the promise. The end is just the receipt. Everything that matters happens in between.</p>
+      </div>
+
+      <div class="blog-article__cta">
+        <h3>Building Something and Stuck in the Middle?</h3>
+        <p>We've been there. Whether you need a technical partner or just want to talk through the hard part &mdash; reach out.</p>
+        <a href="contact.html" class="btn btn--primary">Let's Talk About It &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+          <p>Software development and technology consulting from Canada. Building innovative solutions for healthcare and the environment.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4>Products</h4>
+          <a href="products.html">VOSS</a>
+          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <a href="mailto:info@kalmorntech.com">info@kalmorntech.com</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
+        <p>Built in Canada</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

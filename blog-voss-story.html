@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How a conversation with a neurologist sparked the idea for VOSS — a structured clinical examination tool built for the iPhone.">
+  <title>Digitizing Neurological Examinations: The Story Behind VOSS | Kalmorn Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div class="reading-progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+      <div class="navbar__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <section class="article-hero article-hero--teal">
+    <div class="article-hero__bg"></div>
+    <div class="article-hero__icon">
+      <svg width="320" height="320" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+    </div>
+    <div class="container">
+      <div class="article-hero__content">
+        <div class="article-hero__meta">
+          <span class="article-hero__tag">Product</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__date">February 5, 2026</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__read-time">4 min read</span>
+        </div>
+        <h1>Digitizing Neurological Examinations: The Story Behind VOSS</h1>
+        <p>How a frustrated neurologist and a whiteboard sketch became a working clinical tool.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="section">
+    <div class="blog-article">
+      <a href="blog.html" class="blog-article__back">&larr; Back to Blog</a>
+
+      <p class="blog-article__lead">It started with a conversation we weren't expecting. A neurologist we were consulting for mentioned &mdash; almost offhandedly &mdash; that the most frustrating part of their day wasn't the diagnostic complexity. It was the <strong>administrative overhead</strong> that came after the examination.</p>
+
+      <p>Scoring scales scattered across different PDFs. Handwritten notes from previous visits buried in paper charts. No clean, consistent way to track a patient's progression over time. They were spending more time organizing information than interpreting it.</p>
+
+      <p>That stuck with us.</p>
+
+      <h2>The Problem Nobody Was Solving</h2>
+
+      <p>Neurological examinations are inherently structured. Tools like the NIH Stroke Scale, the Mini-Mental State Examination, and the Montreal Cognitive Assessment all follow specific scoring protocols. Yet the way most clinicians actually administer and record these exams hasn't meaningfully changed in decades.</p>
+
+      <p>Some hospitals have built internal digital forms. A few academic centres have custom solutions. But for the average neurologist in a private clinic or community hospital? It's still paper, or at best, a PDF you fill in and print.</p>
+
+      <blockquote>
+        <p>"I can diagnose a complex movement disorder in 20 minutes. But documenting the structured exam and comparing it to last visit's scores? That takes longer than the exam itself."</p>
+      </blockquote>
+
+      <p>We heard variations of this from multiple neurologists. The pattern was clear: the clinical workflow was begging for a tool that was purpose-built, portable, and fast.</p>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>Why an iPhone App?</h2>
+
+      <p>We debated this one for a while. A web app would have been easier to ship. An iPad app would give us more screen real estate. But we kept coming back to one observation: <strong>neurologists carry their phones everywhere</strong>. Into exam rooms, on ward rounds, between clinics.</p>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">Key Insight</div>
+        <p>An iPhone app that could be pulled out mid-examination, used to score a scale in real time, and then immediately compared to historical data &mdash; that was the product. Not another dashboard to check after the fact. A tool that lives <em>inside</em> the clinical moment.</p>
+      </div>
+
+      <h2>From Whiteboard to Working Prototype</h2>
+
+      <p>We gave ourselves a tight constraint: get a working prototype into a neurologist's hands in under four months. That meant making hard decisions early:</p>
+
+      <ul>
+        <li><strong>Start with one scale.</strong> We resisted the urge to support every neurological examination tool at launch. We picked one, got the workflow right, and built the architecture to scale.</li>
+        <li><strong>On-device first.</strong> Patient data never leaves the device unless the clinician explicitly chooses to export. This wasn't just a privacy decision &mdash; it was a trust decision.</li>
+        <li><strong>Design for speed.</strong> Every tap matters when you're in the middle of a patient encounter. We obsessed over reducing the number of interactions needed to complete a scored assessment.</li>
+        <li><strong>Historical comparison built in.</strong> The whole point of digitizing isn't just to go paperless &mdash; it's to make the data <em>work</em> for you. VOSS shows progression trends across visits automatically.</li>
+      </ul>
+
+      <p>The first prototype was rough. The scoring UI was too clinical &mdash; accurate but sterile. The second iteration found the balance: structured enough to be rigorous, but intuitive enough that a physician could use it without a tutorial.</p>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>What We Learned</h2>
+
+      <p>Building for clinicians is a different kind of challenge. The tolerance for friction is near zero. If the app adds even 30 seconds to their workflow, it won't get used &mdash; no matter how good the data output is.</p>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">Lesson Learned</div>
+        <p><strong>Trust is everything</strong> in healthcare software. Neurologists didn't ask us how the app was built. They asked where the data was stored, who had access, and what happened if their phone was lost. Those questions shaped our entire security architecture.</p>
+      </div>
+
+      <p>VOSS is still early. We're expanding the examination scales it supports, refining the progression tracking, and exploring how aggregate (anonymized) data could eventually help identify patterns across patient populations. But the core insight hasn't changed: give clinicians a tool that fits their workflow, respects their time, and earns their trust.</p>
+
+      <p>Everything else follows from that.</p>
+
+      <div class="blog-article__cta">
+        <h3>Interested in VOSS or Building Healthcare Tools?</h3>
+        <p>We'd love to hear from clinicians, researchers, and anyone working to improve clinical workflows.</p>
+        <a href="contact.html" class="btn btn--primary">Get In Touch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+          <p>Software development and technology consulting from Canada. Building innovative solutions for healthcare and the environment.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4>Products</h4>
+          <a href="products.html">VOSS</a>
+          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <a href="mailto:info@kalmorntech.com">info@kalmorntech.com</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
+        <p>Built in Canada</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "kalmorn-tech-website",
+  "version": "1.0.0",
+  "description": "Kalmorn Tech Ltd. corporate website",
+  "scripts": {
+    "build": "echo 'No build step required - static site'"
+  }
+}

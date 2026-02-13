@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="47 parameters, 12 monitoring wells, one spreadsheet. Why manual environmental reporting is broken and what GRYD does about it.">
+  <title>47 Parameters, 12 Monitoring Wells, One Spreadsheet | Kalmorn Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div class="reading-progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+      <div class="navbar__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <section class="article-hero article-hero--green">
+    <div class="article-hero__bg"></div>
+    <div class="article-hero__icon">
+      <svg width="320" height="320" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+    </div>
+    <div class="container">
+      <div class="article-hero__content">
+        <div class="article-hero__meta">
+          <span class="article-hero__tag">Environment</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__date">January 20, 2026</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__read-time">5 min read</span>
+        </div>
+        <h1>47 Parameters, 12 Monitoring Wells, One Spreadsheet</h1>
+        <p>Why manual exceedance checking is costing environmental consultants more than they realize.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="section">
+    <div class="blog-article">
+      <a href="blog.html" class="blog-article__back">&larr; Back to Blog</a>
+
+      <p class="blog-article__lead">Here's a scenario most environmental consultants know intimately: It's Thursday evening. You've got a Phase II ESA submission due Monday. Lab results just came in &mdash; soil and groundwater data from 12 monitoring wells, each tested for dozens of parameters. Hydrocarbons, metals, salinity, the full suite.</p>
+
+      <p>Now you need to cross-reference every single result against the applicable Alberta Tier 1 guidelines, accounting for land use, pathway scenarios, and soil texture. You open Excel. You start building VLOOKUP formulas. You copy-paste guideline values from a PDF. You squint at numbers for hours.</p>
+
+      <p>And somewhere in that process, <strong>something gets missed</strong>.</p>
+
+      <h2>The Scale of the Problem</h2>
+
+      <p>This isn't a hypothetical. Environmental consulting firms across Alberta process thousands of these datasets every year. A typical wellsite assessment might involve:</p>
+
+      <ul>
+        <li><strong>40-60 chemical parameters</strong> per sample across soil, groundwater, and surface water</li>
+        <li><strong>Multiple guideline configurations</strong> &mdash; Tier 1 defaults, site-specific overrides, background comparisons, ND policy definitions</li>
+        <li><strong>Pathway scenario analysis</strong> that changes which guidelines apply based on site conditions</li>
+        <li><strong>Unit conversions</strong> that vary by parameter and matrix</li>
+        <li><strong>Non-detect handling</strong> that requires specific statistical treatment</li>
+      </ul>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">The Real Risk</div>
+        <p>Do this manually and you're not just slow &mdash; you're exposed. One missed exceedance on a hydrocarbon parameter, one salinity flag that slipped through because the wrong guideline column was referenced, and you've got an audit finding. Or worse, a contaminated site that doesn't get the remediation it needs.</p>
+      </div>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>Why Spreadsheets Aren't Enough</h2>
+
+      <p>Let's be clear: Excel is an incredible tool. We're not anti-spreadsheet &mdash; in fact, we built <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a> to work inside Excel, not replace it. But there's a difference between using Excel as a calculation engine and using it as your entire quality assurance system.</p>
+
+      <p>The problems with manual spreadsheet workflows compound:</p>
+
+      <ul>
+        <li><strong>No validation layer.</strong> There's nothing stopping you from referencing the wrong guideline value. The formula will happily calculate &mdash; it just calculates wrong.</li>
+        <li><strong>Version drift.</strong> Guidelines get updated. If your master spreadsheet has last year's Tier 1 values, every comparison you run is against the wrong standard.</li>
+        <li><strong>No audit trail.</strong> When a regulator asks "how did you determine this parameter was compliant?", pointing to a VLOOKUP isn't a defensible answer.</li>
+        <li><strong>Knowledge silos.</strong> The senior consultant who built the original spreadsheet template left the firm two years ago. Nobody fully understands the formulas they left behind.</li>
+      </ul>
+
+      <blockquote>
+        <p>"We caught a salinity exceedance that manual review missed. It would have been an audit nightmare on a wellsite closure."</p>
+      </blockquote>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>What Automation Actually Looks Like</h2>
+
+      <p>When we started building GRYD, we spent months in the field with environmental consultants before writing a line of code. The goal wasn't to create a fancy dashboard. It was to <strong>automate the parts of the workflow that are dangerous to do manually</strong>.</p>
+
+      <p>That meant:</p>
+
+      <ol>
+        <li><strong>Automated data validation</strong> &mdash; catching formatting issues, unit mismatches, and data gaps the moment lab results are imported</li>
+        <li><strong>Built-in guideline libraries</strong> &mdash; Alberta Tier 1 guidelines with site-specific overrides, background comparisons, and ND policy definitions, always current and always applied consistently</li>
+        <li><strong>Instant exceedance flagging</strong> &mdash; every parameter, every sample, every guideline configuration checked in seconds, not hours</li>
+        <li><strong>Defensible reporting</strong> &mdash; every analysis step is traceable, creating the audit trail that regulators expect</li>
+      </ol>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">By the Numbers</div>
+        <p>Consultants we work with report an average <strong>35% reduction in reporting hours</strong>. But the real win isn't time &mdash; it's confidence. When you submit a compliance report, you know nothing was missed.</p>
+      </div>
+
+      <h2>The Bigger Picture</h2>
+
+      <p>Environmental data analysis isn't getting simpler. Sites are more complex. Regulatory requirements are increasing. The volume of analytical data from labs continues to grow. The industry needs tools that scale with that complexity, not tools that were designed for simpler times.</p>
+
+      <p>We built GRYD because we believe environmental professionals should spend their expertise on <strong>interpretation and decision-making</strong> &mdash; not on data wrangling. The science is hard enough. The tools shouldn't make it harder.</p>
+
+      <p>If you're still manually checking exceedances at 11 p.m. on a Thursday, there's a better way. And you deserve to have your evenings back.</p>
+
+      <div class="blog-article__cta">
+        <h3>Ready to Automate Your Environmental Reporting?</h3>
+        <p>See how GRYD handles the data analysis your team is doing manually today.</p>
+        <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Explore GRYD &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+          <p>Software development and technology consulting from Canada. Building innovative solutions for healthcare and the environment.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4>Products</h4>
+          <a href="products.html">VOSS</a>
+          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <a href="mailto:info@kalmorntech.com">info@kalmorntech.com</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
+        <p>Built in Canada</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

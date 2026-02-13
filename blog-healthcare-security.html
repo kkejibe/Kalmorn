@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How Kalmorn Tech approaches data privacy and security when building healthcare applications like VOSS — beyond the buzzwords.">
+  <title>Security-First Development: What It Actually Looks Like in Healthcare | Kalmorn Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div class="reading-progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+      <div class="navbar__links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="products.html">Products</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <section class="article-hero article-hero--indigo">
+    <div class="article-hero__bg"></div>
+    <div class="article-hero__icon">
+      <svg width="320" height="320" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    </div>
+    <div class="container">
+      <div class="article-hero__content">
+        <div class="article-hero__meta">
+          <span class="article-hero__tag">Engineering</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__date">December 15, 2025</span>
+          <span class="article-hero__dot"></span>
+          <span class="article-hero__read-time">6 min read</span>
+        </div>
+        <h1>Security-First Development: What It Actually Looks Like in Healthcare</h1>
+        <p>The real decisions behind our security posture on VOSS &mdash; not the buzzwords.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="section">
+    <div class="blog-article">
+      <a href="blog.html" class="blog-article__back">&larr; Back to Blog</a>
+
+      <p class="blog-article__lead">Every health tech company says they take security seriously. It's on every landing page, in every pitch deck, somewhere between "HIPAA compliant" and "enterprise-grade encryption." But what does it actually mean when you're building an application that handles real patient data?</p>
+
+      <p>When we started building VOSS &mdash; a neurological examination tool that records patient scores, visit histories, and clinical progression over time &mdash; we had to answer that question for real. Not in a marketing document. In code.</p>
+
+      <h2>The First Question: What Do We Actually Need?</h2>
+
+      <p>Before writing a single line of security code, we asked a more fundamental question: <strong>what data do we actually need to collect?</strong></p>
+
+      <p>The answer, it turned out, was less than we initially assumed. VOSS helps clinicians score neurological examinations and track changes over time. That requires storing examination scores, timestamps, and enough patient identifiers to link visits together. It does <em>not</em> require storing full medical histories, billing information, or anything else that doesn't directly serve the clinical workflow.</p>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">First Principle</div>
+        <p><strong>Don't collect what you don't need.</strong> The most secure data is data that doesn't exist on your servers.</p>
+      </div>
+
+      <h2>On-Device by Default</h2>
+
+      <p>VOSS stores patient examination data on the device by default. Not on our servers. Not in a cloud database. On the physician's iPhone, encrypted with the device's native security capabilities.</p>
+
+      <p>This wasn't the easy choice. Cloud-first would have been simpler architecturally. It would have made syncing across devices trivial. It would have given us analytics capabilities that could inform product decisions.</p>
+
+      <p>But here's the thing: <strong>clinicians didn't ask for cloud sync</strong>. They asked "where is my data stored?" and "who else can see it?" When we said "on your phone, encrypted, and nobody else," the conversation moved to features. Trust was established. That trust was worth more than any architectural convenience.</p>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>Treating Every API Call as Hostile</h2>
+
+      <p>For the features that do require network communication &mdash; software updates, optional data export, anonymized aggregate analytics &mdash; we follow a zero-trust model:</p>
+
+      <ul>
+        <li><strong>Certificate pinning.</strong> The app only communicates with our verified servers. Man-in-the-middle attacks are blocked at the network layer.</li>
+        <li><strong>Token rotation.</strong> Authentication tokens have short lifespans and are rotated automatically. A compromised token has a brief window of utility.</li>
+        <li><strong>Request signing.</strong> Every API call is signed to prevent tampering. If a request is modified in transit, it's rejected.</li>
+        <li><strong>Minimal payloads.</strong> API responses contain only what the client needs. No full database dumps, no extra fields "just in case."</li>
+      </ul>
+
+      <p>This is more work than a standard REST implementation. But in healthcare, "standard" isn't good enough. Every network interaction is a potential attack surface, and we treat it accordingly.</p>
+
+      <h2>What Happens When a Phone Is Lost?</h2>
+
+      <p>This was the question neurologists asked most. Not "what encryption algorithm do you use?" but the practical, concrete scenario: <strong>"I left my phone in a cab. Now what?"</strong></p>
+
+      <p>Our answer has multiple layers:</p>
+
+      <ul>
+        <li><strong>App-level authentication.</strong> VOSS requires biometric or passcode authentication independent of the device lock screen. Even if someone gets past the iPhone's lock, they can't access the app.</li>
+        <li><strong>Encrypted storage.</strong> All examination data is encrypted at rest using the device's Secure Enclave. Access to the physical storage doesn't yield readable data.</li>
+        <li><strong>No cloud breadcrumbs.</strong> Since data lives on-device by default, there's no cloud account to compromise. A lost phone doesn't create a cascading breach.</li>
+        <li><strong>Remote wipe compatibility.</strong> VOSS's data is included in the standard iOS remote wipe capability. If the physician uses Find My to erase their device, examination data goes with it.</li>
+      </ul>
+
+      <blockquote>
+        <p>"Good. Now show me how the scoring works." &mdash; the best possible outcome. Security that's thorough enough to satisfy a clinician but invisible enough to stay out of their way.</p>
+      </blockquote>
+
+      <div class="blog-article__section-break"><span></span></div>
+
+      <h2>The Privacy Architecture We Chose</h2>
+
+      <p>We describe our approach as <strong>zero-knowledge where possible, minimal-knowledge everywhere else</strong>.</p>
+
+      <p>Zero-knowledge means that for the core clinical data &mdash; examination scores, patient identifiers, visit history &mdash; we literally cannot read it. It's encrypted on-device with keys we don't have access to. Even if our servers were breached, there's nothing useful to exfiltrate because the data was never there.</p>
+
+      <p>For the optional features that do involve our servers (aggregate analytics, for example), we apply minimal-knowledge principles. Data is anonymized before it leaves the device. We can see that "a user completed 12 examinations this month" but not whose examinations they were or what the scores revealed.</p>
+
+      <h2>What Security-First Actually Costs</h2>
+
+      <p>Let's be honest about the trade-offs. Building this way is slower. It constrains feature design. There are product ideas we've shelved because they would require data access that contradicts our security posture.</p>
+
+      <div class="blog-article__callout">
+        <div class="blog-article__callout-label">Trade-off</div>
+        <p>A cloud-first approach would let us build collaborative features faster, offer seamless multi-device sync, and collect richer product analytics. We know this. We chose differently anyway. Because in healthcare, <strong>security isn't a feature &mdash; it's the foundation</strong>. Get it wrong and nothing else matters.</p>
+      </div>
+
+      <p>We'd rather ship fewer features with absolute confidence in their security than ship everything with fingers crossed.</p>
+
+      <h2>Looking Forward</h2>
+
+      <p>As VOSS grows, our security architecture will evolve with it. We're exploring privacy-preserving computation techniques that could enable collaborative research without ever exposing individual patient data. We're evaluating additional compliance frameworks as we expand into new jurisdictions.</p>
+
+      <p>But the core principles won't change: collect less, store locally, encrypt everything, and earn trust through transparency &mdash; not marketing claims.</p>
+
+      <div class="blog-article__cta">
+        <h3>Questions About Our Security Approach?</h3>
+        <p>We're happy to discuss our architecture, design decisions, and trade-offs in detail.</p>
+        <a href="contact.html" class="btn btn--primary">Reach Out &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
+          <p>Software development and technology consulting from Canada. Building innovative solutions for healthcare and the environment.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4>Products</h4>
+          <a href="products.html">VOSS</a>
+          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
+        </div>
+        <div class="footer__col">
+          <h4>Connect</h4>
+          <a href="mailto:info@kalmorntech.com">info@kalmorntech.com</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
+        <p>Built in Canada</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
