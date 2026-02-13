@@ -4,5 +4,8 @@
   "description": "Kalmorn Tech Ltd. corporate website",
   "scripts": {
     "build": "echo 'No build step required - static site'"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
   }
 }
