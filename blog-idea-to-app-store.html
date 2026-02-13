@@ -48,7 +48,7 @@
           <span class="article-hero__dot"></span>
           <span class="article-hero__date">December 1, 2025</span>
           <span class="article-hero__dot"></span>
-          <span class="article-hero__read-time">7 min read</span>
+          <span class="article-hero__read-time">3 min read</span>
         </div>
         <h1>From Idea to App Store: What Nobody Tells You About the Middle Part</h1>
         <p>The beginning is exciting. The end is rewarding. The middle is where products go to die.</p>
@@ -61,87 +61,54 @@
     <div class="blog-article">
       <a href="blog.html" class="blog-article__back">&larr; Back to Blog</a>
 
-      <p class="blog-article__lead">There's a version of the product development story that gets told on podcasts and in blog posts. It goes something like: brilliant idea, scrappy team, rapid prototyping, launch, traction. Maybe a pivot somewhere in the middle for dramatic effect. It's tidy and it's motivating and it's about 20% of the actual experience.</p>
+      <p class="blog-article__lead">There's a version of the product development story that gets told on podcasts: brilliant idea, scrappy team, rapid prototyping, launch. It's about 20% of the actual experience. The other 80%? That's the middle part &mdash; and it's where most products quietly die.</p>
 
-      <p>The other 80%? That's the middle part. And it's where most products quietly die.</p>
-
-      <h2>The Beginning Is the Easy Part</h2>
-
-      <p>When we started building VOSS, the first few weeks were genuinely exciting. Architecture decisions felt important and consequential. The first wireframes came together fast. The initial prototype &mdash; basic, barely functional, but <em>real</em> &mdash; gave everyone a jolt of momentum.</p>
-
-      <p>"Look, it works. We're really doing this."</p>
-
-      <p>This phase is intoxicating. Every day feels like meaningful progress because you're starting from zero. Going from nothing to something always feels dramatic. The problem is that it creates an illusion: if the first 30% came together this fast, surely the rest will follow at the same pace.</p>
-
-      <p>It won't.</p>
-
-      <div class="blog-article__section-break"><span></span></div>
+      <div class="blog-article__image">
+        <img src="assets/images/appstore-prototype.jpg" alt="Flat lay showing the progression from paper sketches to digital wireframe to finished iPhone app" loading="lazy">
+        <span class="blog-article__image-caption">The journey from sketch to screen looks tidy in retrospect. The middle was anything but.</span>
+      </div>
 
       <h2>Welcome to the Middle</h2>
 
-      <p>The middle part of product development is where the glamour evaporates and the real work begins. Here's what the middle actually looked like for us:</p>
+      <p>When we started VOSS, the first few weeks were exciting. Architecture decisions felt consequential, wireframes came together fast, and the initial prototype gave everyone a jolt of momentum. Then came the reality:</p>
 
-      <div class="blog-article__callout">
-        <div class="blog-article__callout-label">The Reality</div>
-        <p><strong>Six weeks on an offline sync bug.</strong> VOSS needs to work reliably without network connectivity &mdash; clinicians use it in exam rooms, hospital basements, rural clinics. Our sync logic worked perfectly in testing. In production, with intermittent connectivity and interrupted writes, it broke in ways we didn't predict. Six weeks. One bug. No visible product improvement to show for it.</p>
+      <p><strong>Six weeks on one offline sync bug.</strong> VOSS needs to work without connectivity &mdash; exam rooms, hospital basements, rural clinics. Our sync logic worked in testing. In production, with intermittent connectivity and interrupted writes, it broke in ways we didn't predict.</p>
+
+      <p><strong>The App Store rejection.</strong> Not a code issue &mdash; screenshot dimensions from an outdated template. Fix, resubmit, wait three days. Absurd and completely our fault.</p>
+
+      <p><strong>The third redesign.</strong> The examination summary view was <em>correct</em> but didn't <em>feel</em> right. Two neurologists said so independently. The final version had subtle spacing changes that took days. But it felt right, and that mattered.</p>
+
+      <div class="blog-article__image">
+        <img src="assets/images/appstore-grind.jpg" alt="Developer working late at night on a laptop with code editor, city lights visible through the window" loading="lazy">
+        <span class="blog-article__image-caption">The middle: no screenshots to share, no demos to give. Just silent progress on better foundations.</span>
       </div>
-
-      <p><strong>The App Store rejection.</strong> Our first submission was rejected. Not for a code issue &mdash; for screenshot dimensions that didn't match Apple's current specifications. We'd used a template from a blog post that was six months out of date. Fix, resubmit, wait three days for re-review. It felt absurd. It was also completely our fault.</p>
-
-      <p><strong>The third redesign.</strong> There was a screen &mdash; the examination summary view &mdash; that was <em>correct</em> in every objective sense. It showed the right data, in the right structure, with the right interactions. But it didn't feel right. Two neurologists we tested with said the same thing independently: "I don't know what's wrong with it, but something is off." So we redesigned it. Twice more. The final version looked almost identical to the second version, with subtle spacing and hierarchy changes that took days to implement. But it <em>felt</em> right. And that mattered.</p>
-
-      <h2>The Emotional Landscape</h2>
-
-      <p>Nobody really talks about the emotional texture of the middle. So let us:</p>
-
-      <ul>
-        <li><strong>Doubt.</strong> Around month three, we had a team conversation that started with "are we sure this is the right approach?" and ended an hour later with "yes, but." The "but" lingered for weeks.</li>
-        <li><strong>Scope creep temptation.</strong> When the core product is in the painful middle, it's tempting to start thinking about new features, new markets, new directions. Anything that feels like forward motion instead of the grind. We had to actively resist this.</li>
-        <li><strong>The comparison trap.</strong> Other companies in adjacent spaces seemed to be shipping faster, launching bigger, growing quicker. Social media is a highlight reel. Knowing that intellectually doesn't make it feel better.</li>
-        <li><strong>Silent progress.</strong> Some of the most important work we did &mdash; security architecture, data model migrations, performance optimization &mdash; was completely invisible to anyone outside the team. No screenshots to share. No demos to give. Just better foundations.</li>
-      </ul>
-
-      <div class="blog-article__section-break"><span></span></div>
 
       <h2>What Kept Us Going</h2>
 
-      <p>Honestly? Three things:</p>
+      <p><strong>User conversations.</strong> Every neurologist who said "when can I use it?" made the middle bearable. Real demand is the best antidote to doubt.</p>
 
-      <p><strong>User conversations.</strong> Every time we talked to a neurologist who said "yes, I need this" or "when can I use it?", the middle felt more bearable. Real demand is the best antidote to doubt.</p>
+      <p><strong>Small milestones.</strong> We stopped measuring progress by features shipped and started celebrating problems eliminated. "We fixed the sync issue" became as meaningful as any launch.</p>
 
-      <p><strong>Small milestones.</strong> We stopped measuring progress by features shipped and started measuring it by problems eliminated. "We fixed the sync issue" became as worth celebrating as "we launched a new feature." Maybe more.</p>
-
-      <p><strong>Stubbornness.</strong> There's a version of persistence that's strategic and a version that's just refusing to quit. We'll be honest &mdash; both were in play. Sometimes you keep going not because you've run the numbers and the expected value is positive, but because you said you would and you're not done yet.</p>
-
-      <h2>The Other Side</h2>
-
-      <p>The day VOSS went live on the App Store, it didn't feel like we expected. There was no big bang moment. We submitted, waited for review, got approved, and then... it was live. Anticlimactic in the best way.</p>
+      <p><strong>Stubbornness.</strong> Sometimes you keep going not because the numbers say to, but because you said you would.</p>
 
       <blockquote>
-        <p>The real reward came later. The first message from a neurologist who used it in an actual patient encounter. The first time someone said "this saved me time today." Those moments made the middle worth it.</p>
+        <p>The first message from a neurologist who used VOSS in an actual patient encounter &mdash; "this saved me time today" &mdash; made the middle worth it.</p>
       </blockquote>
-
-      <p>But they didn't erase it. The middle still happened. The sync bug still took six weeks. The rejection still stung. The redesigns still cost time and energy.</p>
 
       <h2>Advice We'd Give Ourselves</h2>
 
-      <p>If we could go back to the start of the middle, we'd say:</p>
-
       <ul>
-        <li><strong>Budget for it.</strong> The middle will take longer and cost more than you think. Plan for that explicitly &mdash; in your timeline, your budget, and your emotional reserves.</li>
-        <li><strong>Stay close to users.</strong> When you're deep in technical debt or edge case fixes, it's easy to lose sight of who you're building for. Regular user conversations are not optional.</li>
-        <li><strong>Ship ugly versions early.</strong> Our instinct was to polish before sharing. Wrong. The sooner something is in a user's hands &mdash; even rough &mdash; the faster you learn what matters and what doesn't.</li>
-        <li><strong>Celebrate the invisible work.</strong> Not everything that matters is visible. Security improvements, performance gains, architectural decisions &mdash; these deserve recognition even if they don't make for good tweets.</li>
+        <li><strong>Budget for the middle.</strong> It takes longer and costs more than you think &mdash; timeline, money, and emotional reserves.</li>
+        <li><strong>Stay close to users.</strong> Regular user conversations are not optional when you're deep in edge-case fixes.</li>
+        <li><strong>Ship ugly versions early.</strong> The sooner it's in hands, the faster you learn what matters.</li>
+        <li><strong>Celebrate invisible work.</strong> Security, performance, architecture &mdash; they deserve recognition even without good tweets.</li>
       </ul>
 
-      <div class="blog-article__callout">
-        <div class="blog-article__callout-label">The Takeaway</div>
-        <p>The middle is where products are actually built. The beginning is just the promise. The end is just the receipt. Everything that matters happens in between.</p>
-      </div>
+      <p>The middle is where products are actually built. The beginning is just the promise. The end is just the receipt.</p>
 
       <div class="blog-article__cta">
         <h3>Building Something and Stuck in the Middle?</h3>
-        <p>We've been there. Whether you need a technical partner or just want to talk through the hard part &mdash; reach out.</p>
+        <p>We've been there. Whether you need a technical partner or just want to talk through it.</p>
         <a href="contact.html" class="btn btn--primary">Let's Talk About It &rarr;</a>
       </div>
     </div>

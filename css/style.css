@@ -1312,7 +1312,7 @@ p {
 }
 
 /* Links */
-.blog-article a {
+.blog-article a:not(.btn):not(.blog-article__back) {
   color: var(--green-primary);
   font-weight: 500;
   text-decoration: underline;
@@ -1321,8 +1321,35 @@ p {
   transition: text-decoration-color var(--transition);
 }
 
-.blog-article a:hover {
+.blog-article a:not(.btn):not(.blog-article__back):hover {
   text-decoration-color: var(--green-primary);
+}
+
+/* Inline Article Images */
+.blog-article__image {
+  margin: 40px 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.blog-article__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.blog-article__image-caption {
+  display: block;
+  padding: 14px 20px;
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-style: italic;
+  line-height: 1.5;
 }
 
 /* Callout Boxes */

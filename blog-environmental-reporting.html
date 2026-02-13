@@ -48,7 +48,7 @@
           <span class="article-hero__dot"></span>
           <span class="article-hero__date">January 20, 2026</span>
           <span class="article-hero__dot"></span>
-          <span class="article-hero__read-time">5 min read</span>
+          <span class="article-hero__read-time">3 min read</span>
         </div>
         <h1>47 Parameters, 12 Monitoring Wells, One Spreadsheet</h1>
         <p>Why manual exceedance checking is costing environmental consultants more than they realize.</p>
@@ -61,75 +61,44 @@
     <div class="blog-article">
       <a href="blog.html" class="blog-article__back">&larr; Back to Blog</a>
 
-      <p class="blog-article__lead">Here's a scenario most environmental consultants know intimately: It's Thursday evening. You've got a Phase II ESA submission due Monday. Lab results just came in &mdash; soil and groundwater data from 12 monitoring wells, each tested for dozens of parameters. Hydrocarbons, metals, salinity, the full suite.</p>
+      <p class="blog-article__lead">It's Thursday evening. You've got a Phase II ESA submission due Monday. Lab results just came in &mdash; soil and groundwater data from 12 monitoring wells, each tested for dozens of parameters. Now you need to cross-reference every result against Alberta Tier 1 guidelines. You open Excel. You start building VLOOKUPs. And somewhere in that process, <strong>something gets missed</strong>.</p>
 
-      <p>Now you need to cross-reference every single result against the applicable Alberta Tier 1 guidelines, accounting for land use, pathway scenarios, and soil texture. You open Excel. You start building VLOOKUP formulas. You copy-paste guideline values from a PDF. You squint at numbers for hours.</p>
-
-      <p>And somewhere in that process, <strong>something gets missed</strong>.</p>
+      <div class="blog-article__image">
+        <img src="assets/images/env-data-analysis.jpg" alt="Environmental consultant working late at their desk analyzing spreadsheet data" loading="lazy">
+        <span class="blog-article__image-caption">The consultant's reality: lab data in Excel, guideline tables in a PDF, and a submission deadline that won't move.</span>
+      </div>
 
       <h2>The Scale of the Problem</h2>
 
-      <p>This isn't a hypothetical. Environmental consulting firms across Alberta process thousands of these datasets every year. A typical wellsite assessment might involve:</p>
+      <p>This isn't hypothetical. A typical wellsite assessment involves 40-60 chemical parameters per sample, multiple guideline configurations, pathway scenario analysis, unit conversions, and non-detect handling that requires specific statistical treatment.</p>
 
-      <ul>
-        <li><strong>40-60 chemical parameters</strong> per sample across soil, groundwater, and surface water</li>
-        <li><strong>Multiple guideline configurations</strong> &mdash; Tier 1 defaults, site-specific overrides, background comparisons, ND policy definitions</li>
-        <li><strong>Pathway scenario analysis</strong> that changes which guidelines apply based on site conditions</li>
-        <li><strong>Unit conversions</strong> that vary by parameter and matrix</li>
-        <li><strong>Non-detect handling</strong> that requires specific statistical treatment</li>
-      </ul>
-
-      <div class="blog-article__callout">
-        <div class="blog-article__callout-label">The Real Risk</div>
-        <p>Do this manually and you're not just slow &mdash; you're exposed. One missed exceedance on a hydrocarbon parameter, one salinity flag that slipped through because the wrong guideline column was referenced, and you've got an audit finding. Or worse, a contaminated site that doesn't get the remediation it needs.</p>
-      </div>
-
-      <div class="blog-article__section-break"><span></span></div>
-
-      <h2>Why Spreadsheets Aren't Enough</h2>
-
-      <p>Let's be clear: Excel is an incredible tool. We're not anti-spreadsheet &mdash; in fact, we built <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a> to work inside Excel, not replace it. But there's a difference between using Excel as a calculation engine and using it as your entire quality assurance system.</p>
-
-      <p>The problems with manual spreadsheet workflows compound:</p>
-
-      <ul>
-        <li><strong>No validation layer.</strong> There's nothing stopping you from referencing the wrong guideline value. The formula will happily calculate &mdash; it just calculates wrong.</li>
-        <li><strong>Version drift.</strong> Guidelines get updated. If your master spreadsheet has last year's Tier 1 values, every comparison you run is against the wrong standard.</li>
-        <li><strong>No audit trail.</strong> When a regulator asks "how did you determine this parameter was compliant?", pointing to a VLOOKUP isn't a defensible answer.</li>
-        <li><strong>Knowledge silos.</strong> The senior consultant who built the original spreadsheet template left the firm two years ago. Nobody fully understands the formulas they left behind.</li>
-      </ul>
+      <p>Do this manually and you're not just slow &mdash; you're exposed. One missed hydrocarbon exceedance, one salinity flag from the wrong guideline column, and you've got an audit finding. Or worse, a contaminated site that doesn't get remediated.</p>
 
       <blockquote>
         <p>"We caught a salinity exceedance that manual review missed. It would have been an audit nightmare on a wellsite closure."</p>
       </blockquote>
 
-      <div class="blog-article__section-break"><span></span></div>
-
-      <h2>What Automation Actually Looks Like</h2>
-
-      <p>When we started building GRYD, we spent months in the field with environmental consultants before writing a line of code. The goal wasn't to create a fancy dashboard. It was to <strong>automate the parts of the workflow that are dangerous to do manually</strong>.</p>
-
-      <p>That meant:</p>
-
-      <ol>
-        <li><strong>Automated data validation</strong> &mdash; catching formatting issues, unit mismatches, and data gaps the moment lab results are imported</li>
-        <li><strong>Built-in guideline libraries</strong> &mdash; Alberta Tier 1 guidelines with site-specific overrides, background comparisons, and ND policy definitions, always current and always applied consistently</li>
-        <li><strong>Instant exceedance flagging</strong> &mdash; every parameter, every sample, every guideline configuration checked in seconds, not hours</li>
-        <li><strong>Defensible reporting</strong> &mdash; every analysis step is traceable, creating the audit trail that regulators expect</li>
-      </ol>
-
-      <div class="blog-article__callout">
-        <div class="blog-article__callout-label">By the Numbers</div>
-        <p>Consultants we work with report an average <strong>35% reduction in reporting hours</strong>. But the real win isn't time &mdash; it's confidence. When you submit a compliance report, you know nothing was missed.</p>
+      <div class="blog-article__image">
+        <img src="assets/images/env-monitoring-wells.jpg" alt="Groundwater monitoring wells in an open Canadian prairie landscape at golden hour" loading="lazy">
+        <span class="blog-article__image-caption">Monitoring wells on a Canadian wellsite. Each one generates dozens of data points that need to be checked against regulatory guidelines.</span>
       </div>
 
-      <h2>The Bigger Picture</h2>
+      <h2>Why Spreadsheets Aren't Enough</h2>
 
-      <p>Environmental data analysis isn't getting simpler. Sites are more complex. Regulatory requirements are increasing. The volume of analytical data from labs continues to grow. The industry needs tools that scale with that complexity, not tools that were designed for simpler times.</p>
+      <p>Excel is an incredible tool &mdash; we built <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a> to work inside it, not replace it. But there's a difference between using Excel as a calculation engine and using it as your entire QA system. No validation layer means wrong guideline references calculate silently. Version drift means last year's Tier 1 values. No audit trail means pointing a regulator at a VLOOKUP.</p>
 
-      <p>We built GRYD because we believe environmental professionals should spend their expertise on <strong>interpretation and decision-making</strong> &mdash; not on data wrangling. The science is hard enough. The tools shouldn't make it harder.</p>
+      <h2>What Automation Looks Like</h2>
 
-      <p>If you're still manually checking exceedances at 11 p.m. on a Thursday, there's a better way. And you deserve to have your evenings back.</p>
+      <p>We spent months in the field before writing a line of code. The goal wasn't a fancy dashboard &mdash; it was to <strong>automate the parts that are dangerous to do manually</strong>:</p>
+
+      <ol>
+        <li><strong>Automated data validation</strong> &mdash; catching formatting issues and data gaps on import</li>
+        <li><strong>Built-in guideline libraries</strong> &mdash; always current, always applied consistently</li>
+        <li><strong>Instant exceedance flagging</strong> &mdash; every parameter checked in seconds, not hours</li>
+        <li><strong>Defensible reporting</strong> &mdash; every step traceable for the audit trail regulators expect</li>
+      </ol>
+
+      <p>Consultants report an average <strong>35% reduction in reporting hours</strong>. But the real win isn't time &mdash; it's confidence. When you submit a compliance report, you know nothing was missed. If you're still checking exceedances at 11 p.m. on a Thursday, there's a better way.</p>
 
       <div class="blog-article__cta">
         <h3>Ready to Automate Your Environmental Reporting?</h3>
