@@ -1547,6 +1547,118 @@ p {
   z-index: 1;
 }
 
+/* --- Legal Pages --- */
+.legal-hero {
+  position: relative;
+  margin-top: var(--nav-height);
+  padding: 118px 0 90px;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.legal-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.legal-hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(10, 10, 10, 0.92) 18%, rgba(10, 10, 10, 0.82) 50%, rgba(10, 10, 10, 0.9) 100%),
+    radial-gradient(ellipse at 20% 20%, rgba(0, 200, 83, 0.2) 0%, transparent 55%);
+}
+
+.legal-hero--privacy .legal-hero__bg {
+  background-image: url('/assets/images/voss-wireframe.jpg');
+}
+
+.legal-hero--support .legal-hero__bg {
+  background-image: url('/assets/images/voss-clinical.jpg');
+}
+
+.legal-hero .container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.legal-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0, 200, 83, 0.14);
+  border: 1px solid rgba(0, 200, 83, 0.35);
+  color: #9ff6c7;
+}
+
+.legal-hero h1 {
+  color: var(--white);
+  margin-bottom: 12px;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.legal-hero p {
+  color: #d5d5d5;
+  max-width: 760px;
+}
+
+.legal-intro {
+  margin-top: -38px;
+  position: relative;
+  z-index: 2;
+}
+
+.legal-intro .card {
+  border-color: rgba(0, 200, 83, 0.38);
+  border-left: 6px solid var(--green-primary);
+  background: linear-gradient(135deg, #f4fff8 0%, #ecfdf3 48%, #f7fcff 100%);
+  box-shadow: 0 14px 34px rgba(0, 200, 83, 0.12);
+}
+
+.legal-page .blog-article h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.legal-page .blog-article h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 58px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--green-primary), var(--green-accent));
+}
+
+.legal-page .blog-article h3 {
+  margin-top: 20px;
+}
+
+.legal-page .blog-article ul {
+  margin-bottom: 30px;
+}
+
+.legal-page .blog-article p {
+  margin-bottom: 20px;
+}
+
 /* --- Values Cards --- */
 .values-grid {
   display: grid;
@@ -1839,6 +1951,15 @@ p {
 
   .section-header {
     margin-bottom: 40px;
+  }
+
+  .legal-hero {
+    margin-top: var(--nav-height);
+    padding: 84px 0 62px;
+  }
+
+  .legal-intro {
+    margin-top: -24px;
   }
 }
 
