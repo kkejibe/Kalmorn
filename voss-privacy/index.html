@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VOSS Privacy Policy | Kalmorn Tech</title>
-  <meta name="description" content="Privacy Policy for the VOSS iOS app by Kalmorn Tech Ltd., including data handling, retention, and support contacts.">
+  <meta name="description" content="Privacy Policy for the VOSS Neuro iOS app by Kalmorn Tech Ltd., including AI services disclosure, user consent, data handling, retention, and support contacts.">
   <link rel="canonical" href="https://www.kalmorntech.com/voss-privacy">
   <meta property="og:title" content="VOSS Privacy Policy | Kalmorn Tech">
-  <meta property="og:description" content="Privacy Policy for the VOSS iOS app by Kalmorn Tech Ltd., including data handling, retention, and support contacts.">
+  <meta property="og:description" content="Privacy Policy for the VOSS Neuro iOS app by Kalmorn Tech Ltd., including AI services disclosure, user consent, data handling, retention, and support contacts.">
   <meta property="og:url" content="https://www.kalmorntech.com/voss-privacy">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +41,7 @@
       <span class="legal-hero__eyebrow">VOSS Policy</span>
       <h1>Privacy Policy for VOSS</h1>
       <p>Last Updated: February 28, 2026</p>
-      <p>This policy explains how information is handled for VOSS as a decision-support / wellness information tool.</p>
+      <p>VOSS (VOSS Neuro) is a clinical documentation app for neurologists that records doctor–patient encounters and uses AI to generate transcriptions, clinical summaries, and possible explanations. This policy explains how information is handled for VOSS as a decision-support and wellness information tool.</p>
     </div>
   </section>
 
@@ -50,7 +50,8 @@
       <div class="container">
         <div class="card">
           <h2>At a Glance</h2>
-          <p>VOSS supports audio transcription, summarization, and Possible Explanations. Session content is intended to remain local on-device, and we do not retain session or user content in our infrastructure after processing.</p>
+          <p>VOSS supports audio transcription, summarization, and possible explanations. Session content is intended to remain local on-device, and we do not retain session or user content in our infrastructure after processing.</p>
+          <p>Clinical data (audio, transcripts, patient demographics, notes) may be sent to our backend server (hosted on Render), which uses OpenAI&rsquo;s API for transcription, summarization, and possible explanations generation. OpenAI operates under a zero-data-retention policy—data is not stored or used for model training.</p>
         </div>
       </div>
     </section>
@@ -64,7 +65,7 @@
         <ul>
           <li>Audio transcription</li>
           <li>Summarization</li>
-          <li>Possible Explanations generated from user-provided content</li>
+          <li>Possible explanations generated from user-provided content</li>
         </ul>
         <p>VOSS is designed as a decision-support / wellness information tool.</p>
         <p>It is not a clinical diagnostic device and is not a substitute for professional medical advice, diagnosis, or treatment.</p>
@@ -80,7 +81,7 @@
 
         <h2>How Information Is Used</h2>
         <ul>
-          <li>Deliver core app features (transcription, summaries, Possible Explanations)</li>
+          <li>Deliver core app features (transcription, summaries, possible explanations)</li>
           <li>Maintain service reliability and security during processing</li>
           <li>Respond to support or privacy requests sent by email</li>
         </ul>
@@ -91,6 +92,24 @@
           <li>We do not use cross-app tracking.</li>
           <li>We do not sell personal data.</li>
           <li>We do not run targeted advertising based on health-related content.</li>
+        </ul>
+
+        <h2>Third-Party AI Services</h2>
+        <p>The app sends clinical data (audio recordings, transcripts, patient demographics, and clinical notes) to our backend server hosted on Render, which uses OpenAI&rsquo;s API for:</p>
+        <ul>
+          <li>Transcription via gpt-4o-transcribe</li>
+          <li>Clinical note summarization via gpt-4o</li>
+          <li>Possible explanations generation via gpt-4o</li>
+        </ul>
+        <p>OpenAI operates under a zero-data-retention API policy—data is not stored or used for model training.</p>
+
+        <h2>User Consent</h2>
+        <p>We obtain explicit consent before processing your data:</p>
+        <ul>
+          <li>On first launch, users are shown a Data Consent screen that clearly discloses what data is collected (audio, transcripts, patient info, clinical notes), who processes it (VOSS backend, OpenAI, Apple), and how it is protected (encryption, zero-retention, immediate deletion).</li>
+          <li>Users must tap &ldquo;I Agree&rdquo; to proceed—the app cannot be used without consent.</li>
+          <li>A link to this Privacy Policy is shown on the consent screen and in Settings.</li>
+          <li>When users disable on-device transcription, an additional confirmation alert warns them that audio will be sent to the server.</li>
         </ul>
 
         <h2>Data Sharing and Processors</h2>
@@ -105,9 +124,54 @@
           <li>Support emails: Retained in email systems as needed to respond and maintain support history.</li>
         </ul>
 
-        <h2>Security</h2>
-        <p>We use reasonable technical and organizational safeguards, including secure transmission practices and access controls, to protect data during processing.</p>
+        <h2>Security and Data Protection</h2>
+        <p>We use reasonable technical and organizational safeguards to protect data during processing:</p>
+        <ul>
+          <li>All data is encrypted in transit (HTTPS/TLS).</li>
+          <li>Audio files are deleted immediately after transcription on both the device and server.</li>
+          <li>On-device transcription via Apple Speech is the default—it keeps all audio on the device. On-device speech recognition is configured with <code>requiresOnDeviceRecognition = true</code>.</li>
+          <li>We apply secure transmission practices and access controls.</li>
+        </ul>
         <p>No method of transmission or storage is 100% secure, but we continually work to protect user information.</p>
+
+        <h2>App Privacy Labels</h2>
+        <p>For transparency, VOSS declares the following in the App Store Connect privacy labels. We do not use any advertising identifiers, analytics SDKs, or tracking technologies.</p>
+        <div class="card" style="margin-top: 16px; overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <th style="text-align: left; padding: 10px 12px;">Data Type</th>
+                <th style="text-align: left; padding: 10px 12px;">Category</th>
+                <th style="text-align: left; padding: 10px 12px;">Linked to User</th>
+                <th style="text-align: left; padding: 10px 12px;">Used for Tracking</th>
+                <th style="text-align: left; padding: 10px 12px;">Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #f0f0f0;">
+                <td style="padding: 10px 12px;">Audio Data</td>
+                <td style="padding: 10px 12px;">User Content</td>
+                <td style="padding: 10px 12px;">Yes</td>
+                <td style="padding: 10px 12px;">No</td>
+                <td style="padding: 10px 12px;">App Functionality</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #f0f0f0;">
+                <td style="padding: 10px 12px;">Health &amp; Fitness Data</td>
+                <td style="padding: 10px 12px;">Health</td>
+                <td style="padding: 10px 12px;">Yes</td>
+                <td style="padding: 10px 12px;">No</td>
+                <td style="padding: 10px 12px;">App Functionality</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 12px;">Other User Content</td>
+                <td style="padding: 10px 12px;">User Content</td>
+                <td style="padding: 10px 12px;">Yes</td>
+                <td style="padding: 10px 12px;">No</td>
+                <td style="padding: 10px 12px;">App Functionality</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2>Your Rights and Requests</h2>
         <p>You may request information about privacy handling or request deletion-related assistance by contacting us.</p>
