@@ -7,6 +7,7 @@
   --green-primary: #00C853;
   --green-accent: #00E676;
   --green-dark: #009624;
+  --green-glow: rgba(0, 200, 83, 0.4);
   --dark: #0A0A0A;
   --dark-light: #1A1A1A;
   --dark-medium: #2A2A2A;
@@ -22,13 +23,17 @@
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.2);
   --shadow-green: 0 4px 20px rgba(0, 200, 83, 0.3);
+  --shadow-green-lg: 0 8px 40px rgba(0, 200, 83, 0.35), 0 0 80px rgba(0, 200, 83, 0.15);
+  --shadow-green-glow: 0 0 20px rgba(0, 200, 83, 0.4), 0 0 60px rgba(0, 200, 83, 0.15);
 
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
+  --radius-xl: 28px;
 
-  --transition: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --max-width: 1200px;
   --nav-height: 80px;
@@ -1809,7 +1814,7 @@ p {
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-in.visible {
@@ -1820,7 +1825,7 @@ p {
 .fade-in-left {
   opacity: 0;
   transform: translateX(-40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-in-left.visible {
@@ -1831,7 +1836,7 @@ p {
 .fade-in-right {
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-in-right.visible {
@@ -1839,9 +1844,289 @@ p {
   transform: translateX(0);
 }
 
+/* ============================================
+   AESTHETIC UPLIFT - Modern Effects
+   ============================================ */
+
+/* --- Animated Gradient Text --- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--green-primary), var(--green-accent), #00d4ff, var(--green-primary));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* --- Floating Glow Orbs --- */
+.hero__glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__glow-orb--1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 200, 83, 0.12);
+  top: 10%;
+  left: 15%;
+  animation: floatOrb1 12s ease-in-out infinite;
+}
+
+.hero__glow-orb--2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 210, 255, 0.08);
+  top: 50%;
+  right: 10%;
+  animation: floatOrb2 15s ease-in-out infinite;
+}
+
+.hero__glow-orb--3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(157, 80, 187, 0.06);
+  bottom: 10%;
+  left: 40%;
+  animation: floatOrb3 18s ease-in-out infinite;
+}
+
+@keyframes floatOrb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 30px) scale(1.05); }
+  66% { transform: translate(40px, -50px) scale(0.9); }
+}
+
+@keyframes floatOrb3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 40px) scale(1.1); }
+  66% { transform: translate(-40px, -20px) scale(0.95); }
+}
+
+/* --- Balloon Canvas Container --- */
+.hero__balloon-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+.hero__balloon-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Glassmorphism Cards --- */
+.card--glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card--glass:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 200, 83, 0.3);
+  box-shadow: var(--shadow-green), inset 0 0 0 1px rgba(0, 200, 83, 0.1);
+}
+
+/* --- Animated Border Gradient --- */
+.glow-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--green-primary), transparent, var(--green-accent), transparent);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: borderGlow 4s ease infinite;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* --- Button Shine Effect --- */
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: rotate(45deg) translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.btn--primary:hover::after {
+  transform: rotate(45deg) translateX(120%);
+}
+
+/* --- Enhanced Product Cards --- */
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-primary), var(--green-accent), #00d4ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- Section Divider Glow --- */
+.section-glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--green-primary), transparent);
+  opacity: 0.3;
+  border: none;
+  margin: 0;
+}
+
+/* --- Stat Number Glow --- */
+.stat__number {
+  text-shadow: 0 0 30px rgba(0, 200, 83, 0.3);
+}
+
+/* --- Enhanced Hero Tag --- */
+.hero__tag {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* --- Noise Texture Overlay --- */
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Product Grid 3 Columns --- */
+.grid--3-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* --- Stagger Animation Delays --- */
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.3s; }
+
+/* --- Enhanced Navbar Glass --- */
+.navbar {
+  background: rgba(10, 10, 10, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 200, 83, 0.05);
+}
+
+/* --- CTA Banner Uplift --- */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: ctaShine 8s ease-in-out infinite;
+}
+
+@keyframes ctaShine {
+  0%, 100% { transform: translate(-30%, -30%); }
+  50% { transform: translate(30%, 30%); }
+}
+
+/* --- Hero Subtitle Enhancement --- */
+.hero__subtitle {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Drillr-specific product card background --- */
+.product-card--drillr .product-card__image {
+  background: linear-gradient(135deg, #1a2e1a 0%, #0d2818 50%, #0a1a10 100%) !important;
+}
+
+/* --- Product Detail Drillr --- */
+.product-detail--drillr .product-detail__mockup {
+  background: linear-gradient(135deg, #0d2818 0%, #1a3a2a 50%, #0a1a10 100%);
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3-products { grid-template-columns: repeat(2, 1fr); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1886,6 +2171,7 @@ p {
 
   .grid--2,
   .grid--3,
+  .grid--3-products,
   .grid--4 {
     grid-template-columns: 1fr;
   }
