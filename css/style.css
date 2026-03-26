@@ -2330,7 +2330,7 @@ p {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(245, 197, 24, 0.9);
+  background: rgba(245, 200, 66, 0.9);
   color: #0A0A0A;
   font-size: 0.65rem;
   font-weight: 700;
@@ -2342,9 +2342,9 @@ p {
 
 .coming-soon-badge {
   display: inline-block;
-  background: rgba(245, 197, 24, 0.15);
-  color: #F5C518;
-  border: 1px solid rgba(245, 197, 24, 0.3);
+  background: rgba(245, 200, 66, 0.15);
+  color: #F5C842;
+  border: 1px solid rgba(245, 200, 66, 0.3);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
