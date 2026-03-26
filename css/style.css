@@ -2314,6 +2314,56 @@ p {
   gap: 30px;
 }
 
+.grid--4-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* --- Coming Soon Badge --- */
+.product-card--coming-soon {
+  position: relative;
+}
+
+.product-card--coming-soon .product-card__image::before {
+  content: 'COMING SOON';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(245, 197, 24, 0.9);
+  color: #0A0A0A;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: rgba(245, 197, 24, 0.15);
+  color: #F5C518;
+  border: 1px solid rgba(245, 197, 24, 0.3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.product-detail__coming-soon-overlay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.product-detail__coming-soon-overlay .coming-soon-badge {
+  font-size: 0.7rem;
+}
+
 /* --- Stagger Animation Delays --- */
 .fade-in:nth-child(2) { transition-delay: 0.1s; }
 .fade-in:nth-child(3) { transition-delay: 0.2s; }
@@ -2372,6 +2422,7 @@ p {
 @media (max-width: 1024px) {
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .grid--3-products { grid-template-columns: repeat(2, 1fr); }
+  .grid--4-products { grid-template-columns: repeat(2, 1fr); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: repeat(2, 1fr); }
@@ -2417,6 +2468,7 @@ p {
   .grid--2,
   .grid--3,
   .grid--3-products,
+  .grid--4-products,
   .grid--4 {
     grid-template-columns: 1fr;
   }
