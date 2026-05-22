@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kalmorn Tech products - VOSS neurological examination app, Drillr borehole logging platform, GRYD Excel plugin for environmental reporting, and Tymr (coming soon).">
+  <meta name="description" content="Kalmorn Tech products - VOSS AI-powered clinical scribe for neurologists, Drillr borehole logging platform, GRYD Excel add-in for environmental compliance and exceedance detection, and Tymr enterprise SaaS for human + AI accountability.">
   <title>Products | Kalmorn Tech Ltd.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,21 +49,28 @@
           <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
         </div>
         <div class="product-detail__content">
-          <span class="product-tag">iOS Application</span>
+          <span class="product-tag">iOS App for Clinicians</span>
           <h2>VOSS</h2>
-          <p>A comprehensive iPhone application designed for neurological clinical examination. VOSS empowers healthcare professionals with intuitive, evidence-based digital tools to conduct thorough neurological assessments at the point of care.</p>
+          <p>An AI-powered ambient scribe built for neurologists. VOSS records doctor–patient encounters, transcribes them on-device, and generates structured SOAP notes, differential diagnoses, and patient-friendly summaries — so clinicians spend less time documenting and more time with patients.</p>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Structured neurological examination workflows</li>
-            <li><span class="check">✓</span> Intuitive clinical interface designed for healthcare professionals</li>
-            <li><span class="check">✓</span> Comprehensive assessment documentation</li>
-            <li><span class="check">✓</span> Designed with input from practicing clinicians</li>
-            <li><span class="check">✓</span> Optimized for iPhone — use anywhere in the clinic</li>
+            <li><span class="check">✓</span> Ambient recording of doctor–patient encounters with pause/resume</li>
+            <li><span class="check">✓</span> On-device transcription via Apple Speech — audio never leaves the iPhone by default</li>
+            <li><span class="check">✓</span> AI-generated SOAP notes using a neurology-specific clinical template</li>
+            <li><span class="check">✓</span> Differential diagnoses with likelihood, rationale, and red-flag indicators</li>
+            <li><span class="check">✓</span> Patient-friendly summaries in plain language</li>
+            <li><span class="check">✓</span> Built-in AI health companion to answer patient follow-up questions</li>
+            <li><span class="check">✓</span> Privacy-first: zero-retention AI processing, encrypted in transit, audio deleted immediately</li>
           </ul>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
             <a href="https://apps.apple.com/ca/app/voss-neuro/id6759835982" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Download on the App Store</a>
             <a href="contact.html" class="btn btn--glass">Request Demo</a>
           </div>
         </div>
+      </div>
+
+      <!-- VOSS Privacy & Trust -->
+      <div class="trust-strip fade-in" style="margin-top: 24px; padding: 16px 20px; border-left: 3px solid #00C853; background: rgba(0, 200, 83, 0.05); border-radius: 0 6px 6px 0;">
+        <strong style="color: var(--white);">Built for clinical privacy.</strong> On-device speech recognition by default. Zero-retention AI processing. TLS encryption in transit. Audio files deleted from the server immediately after transcription.
       </div>
 
       <!-- VOSS Roadmap -->
@@ -73,11 +80,12 @@
           VOSS Roadmap
         </h4>
         <ul>
-          <li>Enhanced examination protocols with expanded neurological test coverage</li>
-          <li>PDF report generation for clinical documentation</li>
-          <li>Integration with electronic health record (EHR) systems</li>
-          <li>Multi-language support for broader clinical adoption</li>
-          <li>iPad companion app for expanded workspace</li>
+          <li>Expanded specialty templates — cardiology, mental health, musculoskeletal, and systems-based notes</li>
+          <li>Multi-language transcription and translation for cross-language consultations</li>
+          <li>EHR/EMR export and integration (HL7/FHIR)</li>
+          <li>iPad companion with expanded clinical workspace</li>
+          <li>Telehealth: live and asynchronous specialist consultations built on the same clinical pipeline</li>
+          <li>Android client to extend reach beyond iOS</li>
         </ul>
       </div>
     </div>
@@ -99,14 +107,17 @@
         <div class="product-detail__content" style="order: 1;">
           <span class="product-tag">Web Platform</span>
           <h2>Drillr</h2>
-          <p>Professional borehole logging software built for environmental geologists who work where the internet doesn't. Drillr is an offline-first platform that lets you capture detailed geological data in the field, generate PDF reports in one tap, and sync everything when you're back online.</p>
+          <p>Professional borehole logging software for environmental geologists who work where the internet doesn't. Drillr is an offline-first field platform that captures detailed stratigraphic data, generates client-ready PDF and Excel reports in one tap, and syncs to the cloud the moment you're back online — across iPad, iPhone, Android, and desktop.</p>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Offline-first borehole logging with automatic sync</li>
-            <li><span class="check">✓</span> Record stratigraphy, lithology, and geological classifications</li>
-            <li><span class="check">✓</span> One-tap professional PDF report generation</li>
-            <li><span class="check">✓</span> Interactive maps with coordinate plotting</li>
-            <li><span class="check">✓</span> Photo capture with automatic compression</li>
-            <li><span class="check">✓</span> Custom classification codes for team standardization</li>
+            <li><span class="check">✓</span> Offline-first PWA — log boreholes in the field with zero connectivity, sync automatically when back online</li>
+            <li><span class="check">✓</span> Full stratigraphic logging: lithology, intervals, inclusions, chemistry, and photos per layer</li>
+            <li><span class="check">✓</span> Multiple classification standards built in — USCS, CSSC, BS 5930, ASTM D2488, plus custom codes for team standardization</li>
+            <li><span class="check">✓</span> One-tap professional PDF reports with graphic stratigraphic columns and lithology patterns</li>
+            <li><span class="check">✓</span> Excel export (GRYD-compatible) for downstream analysis and lab integration</li>
+            <li><span class="check">✓</span> Munsell color picker, SPT blow-count capture, and GPS coordinates with UTM ↔ WGS84 conversion</li>
+            <li><span class="check">✓</span> Interactive Mapbox-powered project maps with borehole plotting</li>
+            <li><span class="check">✓</span> Side-by-side log comparison across boreholes in a project</li>
+            <li><span class="check">✓</span> Installs like a native app — no App Store required, no IT approval needed</li>
           </ul>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
             <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Visit Drillr →</a>
@@ -122,14 +133,14 @@
       <div class="roadmap fade-in">
         <h4>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          Drillr Highlights
+          Drillr Roadmap
         </h4>
         <ul>
-          <li>Enterprise plans with white-label customization and REST API access</li>
-          <li>Custom workflows, templates, and SSO/SAML authentication</li>
-          <li>SSL encryption, GDPR compliance, and 99.9% uptime SLA</li>
-          <li>Individual and team plans with unlimited projects and boreholes</li>
-          <li>Dedicated onboarding and priority support for enterprise clients</li>
+          <li>Team workspaces with shared projects and role-based permissions</li>
+          <li>Customizable PDF report templates with company branding</li>
+          <li>REST API for integration with lab LIMS and GIS platforms</li>
+          <li>SSO/SAML authentication for enterprise deployments</li>
+          <li>Expanded classification libraries and regional standards</li>
         </ul>
       </div>
     </div>
@@ -145,19 +156,20 @@
   </section>
 
   <!-- GRYD Product Section -->
-  <section class="section section--dark" id="enviroanalytics">
+  <section class="section section--dark" id="gryd">
     <div class="container">
       <div class="product-detail fade-in">
         <div class="product-detail__content" style="order: 1;">
-          <span class="product-tag">Excel Plugin</span>
+          <span class="product-tag">Excel Add-in</span>
           <h2>GRYD</h2>
-          <p>A powerful Excel plugin that transforms environmental data analysis and reporting. EnviroAnalytics integrates directly into the tools environmental professionals already use, streamlining data collection, analysis, and compliance reporting.</p>
+          <p>Environmental intelligence, simplified. GRYD lives inside the Excel workbooks and lab results environmental professionals already use — validating data, cross-referencing regulatory guidelines, and flagging exceedances automatically. No uploads. No exports. No new platform to learn.</p>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Seamless integration with Microsoft Excel</li>
-            <li><span class="check">✓</span> Automated environmental data analysis workflows</li>
-            <li><span class="check">✓</span> Compliance-ready reporting templates</li>
-            <li><span class="check">✓</span> Data visualization and trend analysis tools</li>
-            <li><span class="check">✓</span> Support for standard environmental data formats</li>
+            <li><span class="check">✓</span> Automated exceedance detection across soil, groundwater, and surface water</li>
+            <li><span class="check">✓</span> Multi-tiered guideline frameworks with site-specific background calibration</li>
+            <li><span class="check">✓</span> Forensic hydrogeochemistry — Piper, Stiff, Gibbs, Schoeller, Wilcox, PAH cross-plots, and source discriminator diagrams</li>
+            <li><span class="check">✓</span> Integrated GIS and plume mapping with excavation soil-volume calculations</li>
+            <li><span class="check">✓</span> Configurable non-detect (ND) policies and custom guideline overrides</li>
+            <li><span class="check">✓</span> Compliance-ready reports with visual summaries and defensible audit trails</li>
           </ul>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
             <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Visit GRYD →</a>
@@ -169,18 +181,18 @@
         </div>
       </div>
 
-      <!-- GRYD Roadmap -->
+      <!-- GRYD Highlights -->
       <div class="roadmap fade-in">
         <h4>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          GRYD Roadmap
+          GRYD Highlights
         </h4>
         <ul>
-          <li>Advanced statistical analysis engine for environmental datasets</li>
-          <li>Automated regulatory compliance checking and flagging</li>
-          <li>Cloud-based data syncing and team collaboration features</li>
-          <li>Custom report builder with branded templates</li>
-          <li>Integration with government environmental databases</li>
+          <li>End-to-end pipeline — field sampling through lab results to regulatory-ready submission</li>
+          <li>Built for wellsite assessments, environmental site assessments, and contaminated site remediation</li>
+          <li>Statistical analysis engine purpose-built for environmental datasets and non-detect handling</li>
+          <li>Instant flagging for hydrocarbon exceedances, salinity, and heavy metal contamination</li>
+          <li>Audit-ready outputs with traceable data lineage for regulatory submission</li>
         </ul>
       </div>
     </div>
@@ -203,38 +215,36 @@
           <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         </div>
         <div class="product-detail__content">
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <span class="product-tag">Web + Mobile Platform</span>
-            <span class="coming-soon-badge">Coming Soon</span>
-          </div>
+          <span class="product-tag">Enterprise SaaS</span>
           <h2 style="margin-top: 12px;"><span style="color: var(--white);">Ty</span><span style="color: #6DB33F;">mr</span></h2>
-          <p>The accountability layer for the modern enterprise. Tymr tracks time across humans and AI agents alike, unified on one live floor. Every worker. Every hour. Every dollar.</p>
+          <p>The accountability layer for the modern enterprise. Tymr tracks time across humans and AI agents alike — unified on one live floor — and turns that activity into the financial and operational receipts every business already needs. Tax credits. Capacity calls. Audit packs. No timesheets. No surveys.</p>
           <ul class="feature-list">
             <li><span class="check">✓</span> Visual floor plan — humans as circles, AI agents as diamonds, at a glance</li>
-            <li><span class="check">✓</span> Unified human + AI time tracking on a single platform</li>
-            <li><span class="check">✓</span> Automatic cost attribution to projects and cost centers</li>
-            <li><span class="check">✓</span> Multi-source aggregation — Calendar, Jira, Slack, PagerDuty and more</li>
-            <li><span class="check">✓</span> Role-adaptive UX for Members, Managers, and Admins</li>
-            <li><span class="check">✓</span> Offline-first with real-time sync, built on Flutter</li>
+            <li><span class="check">✓</span> Per-engineer, per-project hours cited back to Jira, GitHub, and calendar events</li>
+            <li><span class="check">✓</span> AI agents tracked as first-class workers with token-level cost</li>
+            <li><span class="check">✓</span> Automatic cost attribution for R&amp;D tax credit and balance-sheet decisions</li>
+            <li><span class="check">✓</span> Multi-source ingestion — Jira, GitHub, Google Calendar, Slack, PagerDuty</li>
+            <li><span class="check">✓</span> Enterprise task management, tracking, costing, and reporting</li>
           </ul>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="contact.html" class="btn btn--glass">Get Notified at Launch</a>
+            <a href="https://tymrlogic.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Visit Tymr →</a>
+            <a href="mailto:info@kalmorn.com?subject=Tymr%20Demo%20Request%20%E2%80%94%20Enterprise%20SaaS&body=Hi%20Kalmorn%20team%2C%0A%0AI%27d%20like%20to%20request%20a%20demo%20of%20Tymr%20%E2%80%94%20the%20accountability%20layer%20for%20humans%20and%20AI%20agents.%0A%0ACompany%3A%20%0ARole%3A%20%0ATeam%20size%3A%20%0AWhat%20we%27re%20trying%20to%20solve%3A%20%0A%0AThanks%21" class="btn btn--glass">Request Demo</a>
           </div>
         </div>
       </div>
 
-      <!-- Tymr Roadmap -->
+      <!-- Tymr Highlights -->
       <div class="roadmap fade-in">
         <h4>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          Tymr Roadmap
+          Tymr Highlights
         </h4>
         <ul>
-          <li>Token-level cost tracking for AI agent compute</li>
-          <li>7+ integrations including Calendar, Jira, Slack, and PagerDuty</li>
-          <li>Enterprise SSO with OAuth 2.0 and SAML authentication</li>
-          <li>Real-time incident burn tracking with cost alerts</li>
-          <li>AI agent API supporting any model provider</li>
+          <li>Live MVP at <a href="https://tymrlogic.com" target="_blank" rel="noopener noreferrer">tymrlogic.com</a> — engineering floor view shipped today</li>
+          <li>Agent SDK ready in twelve lines of code — plug in Claude, Copilot, LangChain, or custom runtimes</li>
+          <li>Channel partnerships emerging with R&amp;D tax credit firms and people analytics platforms</li>
+          <li>Enterprise SSO, audit log exports, and ITGC walkthrough materials on the roadmap</li>
+          <li>Built on read-only OAuth and row-level security — privacy by default, by design</li>
         </ul>
       </div>
     </div>
