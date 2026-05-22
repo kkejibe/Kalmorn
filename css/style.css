@@ -2161,6 +2161,7 @@ p {
   z-index: -1;
   transition: opacity 0.4s ease;
   animation: glowBorderRotate 4s ease infinite;
+  animation-play-state: paused;
 }
 
 .card--glow::after {
@@ -2179,11 +2180,14 @@ p {
   filter: blur(20px);
 }
 
-.card--glow:hover::before {
+.card--glow:hover::before,
+.card--glow:focus-within::before {
   opacity: 1;
+  animation-play-state: running;
 }
 
-.card--glow:hover::after {
+.card--glow:hover::after,
+.card--glow:focus-within::after {
   opacity: 1;
 }
 
@@ -2214,6 +2218,7 @@ p {
   );
   background-size: 300% 300%;
   animation: glowBorderRotate 4s ease infinite;
+  animation-play-state: paused;
 }
 
 /* Glowing product card enhancement */
@@ -2239,10 +2244,13 @@ p {
   z-index: -1;
   transition: opacity 0.5s ease;
   animation: glowBorderRotate 4s ease infinite;
+  animation-play-state: paused;
 }
 
-.product-card--glow:hover::before {
+.product-card--glow:hover::before,
+.product-card--glow:focus-within::before {
   opacity: 1;
+  animation-play-state: running;
 }
 
 .product-card--glow:hover {
