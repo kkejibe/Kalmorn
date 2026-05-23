@@ -787,17 +787,30 @@ p {
 
 .roadmap ul li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  padding: 8px 0;
+  padding: 6px 0;
   color: var(--gray);
   font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .roadmap ul li::before {
   content: '→';
   color: var(--green-primary);
   font-weight: 700;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.roadmap ul li a {
+  color: var(--green-primary);
+  border-bottom: 1px solid rgba(0, 200, 83, 0.3);
+  transition: border-color var(--transition);
+}
+
+.roadmap ul li a:hover {
+  border-bottom-color: var(--green-primary);
 }
 
 /* --- Contact Page --- */
