@@ -2584,3 +2584,48 @@ p {
     font-size: 2rem;
   }
 }
+
+/* ============================================
+   Offer Ladder (Run / Fit / Fork / Own)
+   ============================================ */
+.tier-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tier-card__num {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-primary);
+  margin-bottom: 12px;
+}
+
+.tier-card h3 {
+  margin-bottom: 12px;
+}
+
+.tier-card p {
+  flex: 1;
+}
+
+.tier-card__shape {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 6px 14px;
+  border: 1px solid rgba(0, 200, 83, 0.35);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--green-accent);
+  background: rgba(0, 200, 83, 0.08);
+  align-self: flex-start;
+}
+
+.tier-card--own {
+  border-color: rgba(0, 200, 83, 0.5);
+  box-shadow: var(--shadow-green);
+}
