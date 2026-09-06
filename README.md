@@ -14,7 +14,6 @@ A clean, bold, and modern static website for **Kalmorn Tech Ltd.**, a Canadian s
 | Page | File | Description |
 |------|------|-------------|
 | Home | `index.html` | Hero, services overview, products teaser, stats, CTA |
-| About | `about.html` | Mission, vision, values, team placeholders |
 | Services | `services.html` | Software dev & consulting details, process steps |
 | Products | `products.html` | VOSS (iOS app) & GRYD (Excel plugin) with roadmaps |
 | Contact | `contact.html` | Email, phone, location, social links |
@@ -25,7 +24,6 @@ A clean, bold, and modern static website for **Kalmorn Tech Ltd.**, a Canadian s
 ```
 Corp Site/
 ├── index.html
-├── about.html
 ├── services.html
 ├── products.html
 ├── contact.html
