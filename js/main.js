@@ -1,124 +1,51 @@
-/* ============================================
-   KALMORN TECH - Main JavaScript
-   ============================================ */
+/* Shared navigation and reading progress. Content remains visible without JS. */
+document.documentElement.classList.add('js');
 
-document.addEventListener('DOMContentLoaded', () => {
+(() => {
+  const button = document.querySelector('.navbar__hamburger');
+  const links = document.querySelector('.navbar__links');
+  const mobile = matchMedia('(max-width: 760px)');
 
-  // --- Mobile Navigation Toggle ---
-  const hamburger = document.querySelector('.navbar__hamburger');
-  const navLinks = document.querySelector('.navbar__links');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
-
-    // Close menu on outside click
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('open');
-      }
-    });
-  }
-
-  // --- Navbar scroll effect ---
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  }
-
-  // --- Scroll Animations (Intersection Observer) ---
-  const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
-
-  if (animatedElements.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    animatedElements.forEach(el => observer.observe(el));
-  }
-
-  // --- Active Navigation Link ---
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.navbar__links a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
+  if (button && links) {
+    function setMenu(open, returnFocus = false) {
+      links.classList.toggle('open', open);
+      button.classList.toggle('active', open);
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (returnFocus) button.focus();
     }
-  });
-
-  // --- Reading Progress Bar (Blog Articles) ---
-  const progressBar = document.querySelector('.reading-progress');
-  const blogArticle = document.querySelector('.blog-article');
-
-  if (progressBar && blogArticle) {
-    const updateProgress = () => {
-      const articleTop = blogArticle.offsetTop;
-      const articleHeight = blogArticle.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-
-      const start = articleTop - windowHeight * 0.3;
-      const end = articleTop + articleHeight - windowHeight * 0.6;
-      const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
-
-      progressBar.style.width = (progress * 100) + '%';
-    };
-
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
+    button.addEventListener('click', () => setMenu(button.getAttribute('aria-expanded') !== 'true'));
+    links.addEventListener('click', event => {
+      if (event.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && links.classList.contains('open')) setMenu(false, true);
+    });
+    document.addEventListener('click', event => {
+      if (!button.contains(event.target) && !links.contains(event.target)) setMenu(false);
+    });
+    document.addEventListener('focusin', event => {
+      if (!button.contains(event.target) && !links.contains(event.target)) setMenu(false);
+    });
+    mobile.addEventListener('change', () => setMenu(false));
   }
 
-  // --- Animated Counter (for stats section) ---
-  const counters = document.querySelectorAll('[data-count]');
-  if (counters.length > 0) {
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target;
-          const countTo = parseInt(target.getAttribute('data-count'), 10);
-          const suffix = target.getAttribute('data-suffix') || '';
-          const prefix = target.getAttribute('data-prefix') || '';
-          let current = 0;
-          const step = Math.max(1, Math.floor(countTo / 60));
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= countTo) {
-              current = countTo;
-              clearInterval(timer);
-            }
-            target.textContent = prefix + current + suffix;
-          }, 25);
-          counterObserver.unobserve(target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
+  const bar = document.querySelector('.reading-progress');
+  const article = document.querySelector('.blog-article');
+  if (bar && article) {
+    let scheduled = false;
+    function update() {
+      scheduled = false;
+      const bounds = article.getBoundingClientRect();
+      const distance = Math.max(1, bounds.height - innerHeight * .6);
+      const progress = Math.max(0, Math.min(1, (innerHeight * .3 - bounds.top) / distance));
+      bar.style.width = `${progress * 100}%`;
+    }
+    function schedule() {
+      if (!scheduled) { scheduled = true; requestAnimationFrame(update); }
+    }
+    addEventListener('scroll', schedule, {passive: true});
+    addEventListener('resize', schedule);
+    update();
   }
-
-});
+})();

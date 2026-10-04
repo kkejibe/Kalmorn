@@ -7,46 +7,37 @@
   <title>Platforms | Kalmorn Tech Ltd.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-      <div class="navbar__links">
+      <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
+      <div class="navbar__links" id="primary-navigation">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="products.html" class="active">Platforms</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+        <a href="products.html" aria-current="page" class="active">Platforms</a>
+        <a href="services.html">Our approach</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html" class="navbar__contact">Let’s talk ↗</a>
       </div>
-      <button class="navbar__hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
+  <main id="main-content" tabindex="-1">
+
   <!-- Page Header -->
-  <section class="page-header">
-    <div class="page-header__bg"></div>
-    <div class="container">
-      <h1>The Platforms</h1>
-      <p>Not four separate businesses — proof the chassis works in four hard domains. The common thread: regulated, field-heavy operations where generic SaaS fails. Every engagement starts from one of these.</p>
-    </div>
-  </section>
+  <section class="page-header"><div class="container"><span class="eyebrow">The platforms</span><h1>Built for the work.</h1><p>Four platforms for the realities of clinical documentation, environmental compliance, geotechnical fieldwork, and workforce time. Find your starting point.</p></div></section>
 
   <!-- VOSS Product Section -->
   <section class="section section--dark" id="voss">
     <div class="container">
       <div class="product-detail fade-in">
-        <div class="product-detail__mockup" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">01 / Clinical documentation</span><strong>VOSS</strong><ul><li>Record the encounter</li><li>Generate a structured note</li><li>Clinician reviews and signs</li></ul></div>
         <div class="product-detail__content">
           <span class="product-tag">iPhone App + Web Workspace</span>
           <h2>VOSS</h2>
@@ -92,19 +83,13 @@
   </section>
 
   <!-- Divider -->
-  <section class="section" style="padding: 60px 0;">
-    <div class="container" style="text-align: center;">
-      <div class="fade-in">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-      </div>
-    </div>
-  </section>
+  <div class="platform-divider" aria-hidden="true"></div>
 
   <!-- Drillr Product Section -->
   <section class="section section--dark" id="drillr">
     <div class="container">
-      <div class="product-detail product-detail--drillr fade-in">
-        <div class="product-detail__content" style="order: 1;">
+      <div class="product-detail product-detail--reverse product-detail--drillr fade-in">
+        <div class="product-detail__content">
           <span class="product-tag">Web Platform</span>
           <h2>Drillr</h2>
           <p>Professional borehole logging for environmental and geotechnical geologists who work where the internet doesn't. Drillr captures full stratigraphy, monitoring wells, and lab samples in the field with zero connectivity — and now lets you dictate a log out loud and have it transcribed and structured for review. Produce client-ready PDF logs, cross-sections, and site-plan figures in one tap, then sync the moment a signal returns. Runs on iPad, iPhone, Android, and desktop.</p>
@@ -126,9 +111,7 @@
             <a href="mailto:info@kalmorn.com?subject=Drillr%20Demo%20Request%20%E2%80%94%20Borehole%20Logging%20Platform&body=Hi%20Kalmorn%20team%2C%0A%0AI%27d%20like%20to%20request%20a%20demo%20of%20Drillr%20%E2%80%94%20the%20offline-first%20borehole%20logging%20platform.%0A%0ACompany%3A%20%0ARole%3A%20%0ATeam%20size%3A%20%0AProjects%2Fyear%3A%20%0AWhat%20we%27re%20trying%20to%20solve%3A%20%0A%0AThanks%21" class="btn btn--glass">Request Demo</a>
           </div>
         </div>
-        <div class="product-detail__mockup" style="background: linear-gradient(135deg, #0d2818 0%, #1a3a2a 50%, #0a1a10 100%); order: 2;">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M4.93 4.93l2.83 2.83"></path><path d="M16.24 16.24l2.83 2.83"></path><path d="M2 12h4"></path><path d="M18 12h4"></path><path d="M4.93 19.07l2.83-2.83"></path><path d="M16.24 7.76l2.83-2.83"></path></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">02 / Geotechnical fieldwork</span><strong>Drillr</strong><ul><li>Capture field data offline</li><li>Review logs and samples</li><li>Export logs and site figures</li></ul></div>
       </div>
 
       <!-- Drillr Roadmap -->
@@ -150,19 +133,13 @@
   </section>
 
   <!-- Divider -->
-  <section class="section" style="padding: 60px 0;">
-    <div class="container" style="text-align: center;">
-      <div class="fade-in">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-      </div>
-    </div>
-  </section>
+  <div class="platform-divider" aria-hidden="true"></div>
 
   <!-- GRYD Product Section -->
   <section class="section section--dark" id="gryd">
     <div class="container">
-      <div class="product-detail fade-in">
-        <div class="product-detail__content" style="order: 1;">
+      <div class="product-detail product-detail--reverse fade-in">
+        <div class="product-detail__content">
           <span class="product-tag">Excel Add-in — Desktop &amp; Web</span>
           <h2>GRYD</h2>
           <p>Smarter analysis. Faster remediation. GRYD lives inside the Excel workbooks environmental teams already use — normalizing messy lab data, screening it against multi-tiered regulatory guidelines, and producing defensible, audit-ready reports. Built for wellsite closures, agricultural salinity assessments, and contaminated-site remediation. No uploads. Your data never leaves the workbook.</p>
@@ -180,9 +157,7 @@
             <a href="mailto:info@kalmorn.com?subject=GRYD%20Demo%20Request%20%E2%80%94%20Environmental%20Excel%20Add-in&body=Hi%20Kalmorn%20team%2C%0A%0AI%27d%20like%20to%20request%20a%20demo%20of%20GRYD%20%E2%80%94%20the%20Excel%20add-in%20for%20environmental%20intelligence%20and%20exceedance%20detection.%0A%0ACompany%3A%20%0ARole%3A%20%0AAssessment%20types%20%28ESA%2C%20remediation%2C%20wellsite%29%3A%20%0ATypical%20dataset%20size%3A%20%0AGuideline%20frameworks%20used%3A%20%0A%0AThanks%21" class="btn btn--glass">Request Demo</a>
           </div>
         </div>
-        <div class="product-detail__mockup" style="background: linear-gradient(135deg, #0a2e1a 0%, #1a3a2a 100%); order: 2;">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">03 / Environmental compliance</span><strong>GRYD</strong><ul><li>Organize lab results</li><li>Screen against guidelines</li><li>Review flagged exceedances</li></ul></div>
       </div>
 
       <!-- GRYD Highlights -->
@@ -203,21 +178,13 @@
   </section>
 
   <!-- Divider -->
-  <section class="section" style="padding: 60px 0;">
-    <div class="container" style="text-align: center;">
-      <div class="fade-in">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-      </div>
-    </div>
-  </section>
+  <div class="platform-divider" aria-hidden="true"></div>
 
   <!-- Tymr Product Section -->
   <section class="section section--dark" id="tymr">
     <div class="container">
       <div class="product-detail fade-in">
-        <div class="product-detail__mockup" style="background: linear-gradient(135deg, #1a1a0a 0%, #2a2510 50%, #1a1a0a 100%);">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">04 / Workforce intelligence</span><strong>Tymr</strong><ul><li>Draft time from work activity</li><li>Review and confirm entries</li><li>Understand capacity and cost</li></ul></div>
         <div class="product-detail__content">
           <span class="product-tag">Enterprise SaaS</span>
           <h2 style="margin-top: 12px;"><span style="color: var(--white);">Ty</span><span style="color: #6DB33F;">mr</span></h2>
@@ -265,39 +232,17 @@
   </section>
 
   <!-- Footer -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-          <p>A Canadian platform company for regulated, field-heavy industries. We deploy operational platforms, adapt them to how you work, and offer a path to owning the result.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <a href="services.html">Services</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer__col">
-          <h4>Platforms</h4>
-          <a href="products.html#voss">VOSS</a>
-          <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer">Drillr</a>
-          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
-          <a href="products.html#tymr">Tymr</a>
-          <a href="https://vossclinical.com" target="_blank" rel="noopener noreferrer">VOSS Website</a>
-          <a href="https://apps.apple.com/ca/app/voss-neuro/id6759835982" target="_blank" rel="noopener noreferrer">VOSS on the App Store</a>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <a href="mailto:info@kalmorn.com">info@kalmorn.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
-        </div>
+        <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Proven platforms for complex operations. Adapted to your team. With a path to making the software your own.</p></div>
+        <div class="footer__col"><h4>Company</h4><a href="services.html">Our approach</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></div>
+        <div class="footer__col"><h4>Platforms</h4><a href="products.html#voss">VOSS</a><a href="products.html#drillr">Drillr</a><a href="products.html#gryd">GRYD</a><a href="products.html#tymr">Tymr</a></div>
+        <div class="footer__col"><h4>Start a conversation</h4><a href="mailto:info@kalmorn.com">info@kalmorn.com</a><a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer">VOSS support ↗</a><a href="https://vossclinical.com/privacy" target="_blank" rel="noopener noreferrer">VOSS privacy ↗</a></div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
-        <p>Built in Canada 🍁</p>
-      </div>
+      <div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd.</p><p>Canadian owned. Independently built.</p></div>
     </div>
   </footer>
 

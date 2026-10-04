@@ -7,134 +7,49 @@
   <title>Contact | Kalmorn Tech Ltd.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-      <div class="navbar__links">
+      <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
+      <div class="navbar__links" id="primary-navigation">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
         <a href="products.html">Platforms</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="services.html">Our approach</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html" aria-current="page" class="active navbar__contact">Let’s talk ↗</a>
       </div>
-      <button class="navbar__hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="page-header__bg"></div>
-    <div class="container">
-      <h1>Get In Touch</h1>
-      <p>Have a project in mind or want to learn more? We'd love to hear from you.</p>
-    </div>
-  </section>
-
-  <!-- Contact Info Cards -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="contact-grid fade-in">
-        <div class="contact-card">
-          <div class="contact-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          </div>
-          <h4>Email Us</h4>
-          <p>For general inquiries and project discussions</p>
-          <a href="mailto:info@kalmorn.com">info@kalmorn.com</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
-          <h4>Call Us</h4>
-          <p>Available Monday to Friday, 9AM - 5PM EST</p>
-          <a href="tel:+1-000-000-0000">+1 (000) 000-0000</a>
-        </div>
-        <div class="contact-card">
-          <div class="contact-card__icon">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          </div>
-          <h4>Location</h4>
-          <p>Proudly based in</p>
-          <p style="color: var(--green-primary); font-weight: 500;">Canada</p>
-        </div>
+  <main id="main-content" tabindex="-1">
+    <section class="page-header"><div class="container"><span class="eyebrow">Start a conversation</span><h1>Bring us the difficult part.</h1><p>Tell us where your operation slows down. We’ll explore the platform, the fit, and the path forward with you.</p></div></section>
+    <section class="section"><div class="container contact-layout">
+      <div class="contact-lead"><span class="eyebrow">Independent. Canadian. In your corner.</span><h2>Let’s talk about your work.</h2><p>Whether you’re exploring a platform, looking for embedded engineering, or ready to own your instance, start with a conversation.</p><a class="contact-email" href="mailto:info@kalmorn.com">info@kalmorn.com ↗</a></div>
+      <div class="contact-topics" aria-label="Contact topics">
+        <a href="mailto:info@kalmorn.com?subject=Platform%20demo%20request"><span>01</span><div><strong>Explore a platform</strong><small>VOSS, Drillr, GRYD, or Tymr.</small></div><span aria-hidden="true">↗</span></a>
+        <a href="mailto:info@kalmorn.com?subject=Embedded%20engineering%20inquiry"><span>02</span><div><strong>Make the software fit</strong><small>Engineering alongside your team.</small></div><span aria-hidden="true">↗</span></a>
+        <a href="mailto:info@kalmorn.com?subject=Fork-to-own%20inquiry"><span>03</span><div><strong>Talk about ownership</strong><small>A dedicated build. A path to owning it.</small></div><span aria-hidden="true">↗</span></a>
+        <a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer"><span>04</span><div><strong>Get VOSS support</strong><small>Visit the VOSS support team.</small></div><span aria-hidden="true">↗</span></a>
       </div>
+    </div></section>
+  </main>
 
-      <!-- Map Placeholder -->
-      <div class="map-placeholder fade-in">
-        <div style="text-align: center;">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#616161" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          <p style="margin-top: 12px; color: var(--gray);">Map Integration — Coming Soon</p>
-        </div>
-      </div>
-
-      <!-- Social Links -->
-      <div class="social-links fade-in">
-        <a href="#" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a href="#" aria-label="Twitter / X">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-        </a>
-        <a href="#" aria-label="GitHub">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="cta-banner">
-    <div class="container fade-in">
-      <h2>Ready to Start a Conversation?</h2>
-      <p>Drop us an email and we'll get back to you within 24 hours.</p>
-      <a href="mailto:info@kalmorn.com?subject=Hello%2C%20Kalmorn&body=Hi%20Kalmorn%20team%2C%0A%0A" class="btn btn--dark btn--lg">Email Us Now →</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-          <p>A Canadian platform company for regulated, field-heavy industries. We deploy operational platforms, adapt them to how you work, and offer a path to owning the result.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <a href="services.html">Services</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer__col">
-          <h4>Platforms</h4>
-          <a href="products.html#voss">VOSS</a>
-          <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer">Drillr</a>
-          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
-          <a href="https://vossclinical.com" target="_blank" rel="noopener noreferrer">VOSS Website</a>
-          <a href="https://apps.apple.com/ca/app/voss-neuro/id6759835982" target="_blank" rel="noopener noreferrer">VOSS on the App Store</a>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <a href="mailto:info@kalmorn.com">info@kalmorn.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
-        </div>
+        <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Proven platforms for complex operations. Adapted to your team. With a path to making the software your own.</p></div>
+        <div class="footer__col"><h4>Company</h4><a href="services.html">Our approach</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></div>
+        <div class="footer__col"><h4>Platforms</h4><a href="products.html#voss">VOSS</a><a href="products.html#drillr">Drillr</a><a href="products.html#gryd">GRYD</a><a href="products.html#tymr">Tymr</a></div>
+        <div class="footer__col"><h4>Start a conversation</h4><a href="mailto:info@kalmorn.com">info@kalmorn.com</a><a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer">VOSS support ↗</a><a href="https://vossclinical.com/privacy" target="_blank" rel="noopener noreferrer">VOSS privacy ↗</a></div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
-        <p>Built in Canada 🍁</p>
-      </div>
+      <div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd.</p><p>Canadian owned. Independently built.</p></div>
     </div>
   </footer>
 

@@ -1,81 +1,45 @@
-# Kalmorn Tech Ltd. — Corporate Website
+# Kalmorn Tech — Precision website
 
-A clean, bold, and modern static website for **Kalmorn Tech Ltd.**, a Canadian software development and technology consulting company.
+A static corporate website for Kalmorn’s operational platforms and engineering services. The design uses an ivory background, precise grid layouts, green accents, and the original green-and-white wordmark. The homepage includes interactive balloons with hover, touch, and keyboard controls.
 
-## Tech Stack
+## Local development
 
-- **Plain HTML5 / CSS3 / Vanilla JavaScript** — no build tools, no frameworks
-- **Google Fonts** (Inter) loaded via CDN
-- Fully responsive (mobile, tablet, desktop)
-- Scroll-triggered animations using Intersection Observer API
-
-## Pages
-
-| Page | File | Description |
-|------|------|-------------|
-| Home | `index.html` | Hero, services overview, products teaser, stats, CTA |
-| Services | `services.html` | Software dev & consulting details, process steps |
-| Products | `products.html` | VOSS (iOS app) & GRYD (Excel plugin) with roadmaps |
-| Contact | `contact.html` | Email, phone, location, social links |
-| Blog | `blog.html` | Placeholder blog post grid |
-
-## Project Structure
-
-```
-Corp Site/
-├── index.html
-├── services.html
-├── products.html
-├── contact.html
-├── blog.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── assets/
-│   └── images/
-└── README.md
+```sh
+npm install
+npm run dev
 ```
 
-## Running Locally
+Open [the local preview](http://127.0.0.1:4173). Set `PORT` to choose another port. The preview server binds to the local computer only.
 
-No build step required. Simply open any `.html` file in a browser, or start a local server:
+The site uses plain HTML, CSS, and JavaScript. There is no bundler or application framework. Google Fonts supplies DM Sans, Manrope, IBM Plex Mono, and Inter; system fonts serve as fallbacks.
 
-```bash
-# Python 3
-python3 -m http.server 8080
+## Validation
 
-# Then visit http://localhost:8080
+```sh
+npm run build
+npx playwright install chromium
+npm test
 ```
 
-## Color Palette
+`build` checks the JavaScript syntax; the static files themselves are ready to host. Browser checks cover every top-level page at desktop, tablet, and mobile widths; local links and assets; mobile navigation; content without JavaScript; and balloon hover, touch, keyboard, pause, respawn, and reduced-motion behavior.
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Primary Green | `#00C853` | Buttons, accents, highlights |
-| Accent Green | `#00E676` | Hover states |
-| Dark | `#0A0A0A` | Backgrounds, text |
-| White | `#FFFFFF` | Content backgrounds |
-| Off-White | `#F5F5F5` | Alternate section backgrounds |
+To use an existing Chromium installation, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`. Set `SCREENSHOT_DIR` to save verification screenshots outside the source tree.
 
-## Customization
+## Source layout
 
-- **Colors:** All defined as CSS custom properties in `css/style.css` under `:root`
-- **Content:** Edit HTML files directly — each page is self-contained
-- **Images:** Replace SVG placeholders in `assets/images/` with actual product screenshots, team photos, etc.
-- **Contact info:** Update email, phone, and social links in each page's footer and `contact.html`
+- `index.html`: approved Precision homepage, platform overview, and ownership model.
+- `services.html`, `products.html`, `contact.html`: approach, platform details, and contact options.
+- `blog.html`, `blog-*.html`: journal and existing articles.
+- `css/style.css`: shared typography, layout, navigation, and page styles.
+- `css/home.css`: homepage layout and balloon field.
+- `js/main.js`: accessible mobile navigation and article reading progress.
+- `js/balloons.js`: floating balloons, particle effects, and motion controls.
+- `scripts/serve.cjs`, `scripts/verify-site.cjs`: local preview and browser verification.
+
+Navigation and footer markup are present in each page so the site works without JavaScript. Keep these shared sections consistent when editing a page. The VOSS support and privacy routes retain their redirects to the VOSS website.
 
 ## Hosting
 
-This is a fully static site. Deploy to any static hosting provider:
+Publish the HTML pages, `css/`, `js/`, `assets/`, `voss-support/`, and `voss-privacy/` to any static host. No server runtime or build output is needed. Exclude local development files, `node_modules/`, and `.git/` from the published files.
 
-- GitHub Pages
-- Netlify
-- Vercel
-- AWS S3 + CloudFront
-- Any web server (Nginx, Apache)
-
-## License
-
-Copyright © 2026 Kalmorn Tech Ltd. All rights reserved.
-# Kalmorn
+Copyright © 2026 Kalmorn Tech Ltd.

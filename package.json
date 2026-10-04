@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Kalmorn Tech Ltd. corporate website",
   "scripts": {
-    "build": "echo 'No build step required - static site'"
+    "dev": "node scripts/serve.cjs",
+    "build": "node --check js/main.js && node --check js/balloons.js",
+    "test": "node scripts/verify-site.cjs"
   },
   "devDependencies": {
     "playwright": "^1.58.2"

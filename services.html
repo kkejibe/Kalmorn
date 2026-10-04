@@ -7,46 +7,37 @@
   <title>How We Work | Kalmorn Tech Ltd.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-      <div class="navbar__links">
+      <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
+      <div class="navbar__links" id="primary-navigation">
         <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
         <a href="products.html">Platforms</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+        <a href="services.html" aria-current="page" class="active">Our approach</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html" class="navbar__contact">Let’s talk ↗</a>
       </div>
-      <button class="navbar__hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
+  <main id="main-content" tabindex="-1">
+
   <!-- Page Header -->
-  <section class="page-header">
-    <div class="page-header__bg"></div>
-    <div class="container">
-      <h1>How We Work</h1>
-      <p>Custom-fit software at product speed — with a path to ownership. One model, three proven patterns: a platform chassis, forward-deployed engineering, and fork-to-own.</p>
-    </div>
-  </section>
+  <section class="page-header"><div class="container"><span class="eyebrow">Our approach</span><h1>Start ahead. Make it yours.</h1><p>A proven platform, engineering alongside your team, and a path to ownership. Enter wherever you are. Grow at your own pace.</p></div></section>
 
   <!-- Software Development -->
   <section class="section">
     <div class="container">
       <div class="alt-section fade-in">
-        <div class="alt-section__image" style="background: linear-gradient(135deg, #f0faf4 0%, #e8f5e9 100%);">
-          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">01 / The Kalmorn approach</span><strong>A proven<br>starting point.</strong><ul><li>VOSS / Clinical documentation</li><li>Drillr / Geotechnical logging</li><li>GRYD / Environmental analysis</li><li>Tymr / Workforce intelligence</li></ul></div>
         <div class="alt-section__content">
           <h3>Start From a Proven Chassis</h3>
           <p>Kalmorn builds and operates real products — VOSS, GRYD, Drillr, Tymr. These are not demos; they're live in clinics, on drill sites, and inside regulated workflows today. Every engagement starts from one of them, so nobody starts from zero.</p>
@@ -67,9 +58,7 @@
   <section class="section section--off-white">
     <div class="container">
       <div class="alt-section alt-section--reverse fade-in">
-        <div class="alt-section__image" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
-          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">02 / The Kalmorn approach</span><strong>Built alongside<br>your team.</strong><ul><li>Understand your operation</li><li>Adapt the platform to your workflows</li><li>Ship, learn, and refine</li></ul></div>
         <div class="alt-section__content">
           <h3>Forward-Deployed Engineering</h3>
           <p>An engineer embeds with your organization to learn your processes, your constraints, and your problems — then adapts the platform around how work actually flows. Not configuration. Not a requirements document thrown over a wall.</p>
@@ -90,9 +79,7 @@
   <section class="section">
     <div class="container">
       <div class="alt-section fade-in">
-        <div class="alt-section__image" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #e0f2f1 100%);">
-          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
+        <div class="technical-panel"><span class="technical-panel__number">03 / The Kalmorn approach</span><strong>Your instance.<br>Your future.</strong><ul><li>Your own domain and infrastructure</li><li>Your proprietary customizations</li><li>A path to outright ownership</li></ul></div>
         <div class="alt-section__content">
           <h3>Fork-to-Own</h3>
           <p>When customization goes deep enough, your instance becomes a separate build — your domain, your infrastructure, your workflows. And at any point, you can buy it outright. SaaS vendors refuse this. Dev shops can't offer a proven chassis to start from. We do both.</p>
@@ -179,38 +166,17 @@
   </section>
 
   <!-- Footer -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-          <p>A Canadian platform company for regulated, field-heavy industries. We deploy operational platforms, adapt them to how you work, and offer a path to owning the result.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <a href="services.html">Services</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer__col">
-          <h4>Platforms</h4>
-          <a href="products.html#voss">VOSS</a>
-          <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer">Drillr</a>
-          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
-          <a href="https://vossclinical.com" target="_blank" rel="noopener noreferrer">VOSS Website</a>
-          <a href="https://apps.apple.com/ca/app/voss-neuro/id6759835982" target="_blank" rel="noopener noreferrer">VOSS on the App Store</a>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <a href="mailto:info@kalmorn.com">info@kalmorn.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
-        </div>
+        <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Proven platforms for complex operations. Adapted to your team. With a path to making the software your own.</p></div>
+        <div class="footer__col"><h4>Company</h4><a href="services.html">Our approach</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></div>
+        <div class="footer__col"><h4>Platforms</h4><a href="products.html#voss">VOSS</a><a href="products.html#drillr">Drillr</a><a href="products.html#gryd">GRYD</a><a href="products.html#tymr">Tymr</a></div>
+        <div class="footer__col"><h4>Start a conversation</h4><a href="mailto:info@kalmorn.com">info@kalmorn.com</a><a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer">VOSS support ↗</a><a href="https://vossclinical.com/privacy" target="_blank" rel="noopener noreferrer">VOSS privacy ↗</a></div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
-        <p>Built in Canada 🍁</p>
-      </div>
+      <div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd.</p><p>Canadian owned. Independently built.</p></div>
     </div>
   </footer>
 

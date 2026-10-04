@@ -7,32 +7,31 @@
   <title>Security-First Development: What It Actually Looks Like in Healthcare | Kalmorn Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Reading Progress -->
-  <div class="reading-progress"></div>
+  <div class="reading-progress" aria-hidden="true"></div>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-      <div class="navbar__links">
+      <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
+      <div class="navbar__links" id="primary-navigation">
         <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
         <a href="products.html">Platforms</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="contact.html">Contact</a>
+        <a href="services.html">Our approach</a>
+        <a href="blog.html" aria-current="page" class="active">Journal</a>
+        <a href="contact.html" class="navbar__contact">Let’s talk ↗</a>
       </div>
-      <button class="navbar__hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- Article Hero -->
   <section class="article-hero article-hero--indigo">
@@ -110,38 +109,17 @@
   </section>
 
   <!-- Footer -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-          <p>A Canadian platform company for regulated, field-heavy industries. We deploy operational platforms, adapt them to how you work, and offer a path to owning the result.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <a href="services.html">Services</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer__col">
-          <h4>Platforms</h4>
-          <a href="products.html#voss">VOSS</a>
-          <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer">Drillr</a>
-          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
-          <a href="https://vossclinical.com" target="_blank" rel="noopener noreferrer">VOSS Website</a>
-          <a href="https://apps.apple.com/ca/app/voss-neuro/id6759835982" target="_blank" rel="noopener noreferrer">VOSS on the App Store</a>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <a href="mailto:info@kalmorn.com">info@kalmorn.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
-        </div>
+        <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Proven platforms for complex operations. Adapted to your team. With a path to making the software your own.</p></div>
+        <div class="footer__col"><h4>Company</h4><a href="services.html">Our approach</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></div>
+        <div class="footer__col"><h4>Platforms</h4><a href="products.html#voss">VOSS</a><a href="products.html#drillr">Drillr</a><a href="products.html#gryd">GRYD</a><a href="products.html#tymr">Tymr</a></div>
+        <div class="footer__col"><h4>Start a conversation</h4><a href="mailto:info@kalmorn.com">info@kalmorn.com</a><a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer">VOSS support ↗</a><a href="https://vossclinical.com/privacy" target="_blank" rel="noopener noreferrer">VOSS privacy ↗</a></div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
-        <p>Built in Canada</p>
-      </div>
+      <div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd.</p><p>Canadian owned. Independently built.</p></div>
     </div>
   </footer>
 

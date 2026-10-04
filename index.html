@@ -3,261 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kalmorn Tech Ltd. - A Canadian platform company for regulated, field-heavy industries. We deploy operational platforms, forward-deploy engineers to fit them to your business, and offer a path to owning the result.">
-  <title>Kalmorn Tech Ltd. | Operational Platforms for Regulated, Field-Heavy Industries</title>
+  <meta name="description" content="Proven platforms for complex operations. Kalmorn builds software for regulated, field-heavy industries, adapts it to your team, and offers a path to ownership.">
+  <title>Kalmorn Tech | Serious Work. Software That Fits.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/balloons.js" defer></script>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <nav class="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-      <div class="navbar__links">
-        <a href="index.html" class="active">Home</a>
-        <a href="services.html">Services</a>
+      <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
+      <div class="navbar__links" id="primary-navigation">
+        <a href="index.html" aria-current="page" class="active">Home</a>
         <a href="products.html">Platforms</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+        <a href="services.html">Our approach</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html" class="navbar__contact">Let’s talk ↗</a>
       </div>
-      <button class="navbar__hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
     </div>
   </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero__bg-pattern"></div>
-    <div class="hero__grid-lines"></div>
-    <div class="hero__glow-orb hero__glow-orb--1"></div>
-    <div class="hero__glow-orb hero__glow-orb--2"></div>
-    <div class="hero__glow-orb hero__glow-orb--3"></div>
-    <div class="hero__balloon-canvas">
-      <canvas id="balloon-canvas"></canvas>
-    </div>
-    <div class="noise-overlay"></div>
-    <div class="container">
-      <div class="hero__content">
-        <div class="hero__tag">Canadian Platform Company</div>
-        <h1>Custom-Fit Software at <span class="gradient-text">Product Speed</span> — With a Path to Ownership</h1>
-        <p class="hero__subtitle">Kalmorn builds operational platforms for regulated, field-heavy industries — clinical exams, environmental compliance, geotechnical logging, workforce time attribution. We forward-deploy engineers to fit them to your business, and — uniquely — offer you a path to owning the result.</p>
-        <div class="hero__actions">
-          <a href="products.html" class="btn btn--primary btn--lg">Explore the Platforms →</a>
-          <a href="services.html" class="btn btn--glass btn--lg">See How It Works</a>
-        </div>
+  <main id="main-content" tabindex="-1">
+    <section class="home-hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow">Built in Canada. Built for the field.</span>
+        <h1 id="hero-title">Serious work.<br>Software<br>that <em>fits.</em></h1>
+        <p>Proven platforms for complex operations.<br>Adapted to your team. With a path to making the software your own.</p>
+        <a class="btn btn--primary" href="products.html">Find your platform <span aria-hidden="true">↗</span></a>
       </div>
-    </div>
-  </section>
-
-  <!-- Services Snapshot -->
-  <section class="section section--off-white">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2>One Model, Three Proven Patterns</h2>
-        <p>We don't just sell software, and we don't build from scratch. We do something better than both.</p>
+      <div class="balloon-panel">
+        <div class="balloon-panel__heading"><span>Fig. 01 / A little room for play</span><span>K—26</span></div>
+        <div class="balloon-field" id="balloon-field" role="group" aria-label="Floating balloons. Hover, tap, or use Tab and Enter to pop.">
+          <canvas id="balloon-canvas" aria-hidden="true"></canvas>
+        </div>
+        <div class="balloon-panel__footer">
+          <p>Serious software. A playful spirit.<br><span>Hover or tap to pop.</span></p>
+          <button type="button" id="balloon-motion" class="balloon-motion" aria-pressed="false">Pause motion</button>
+        </div>
+        <div class="sr-only" id="balloon-status" aria-live="polite"></div>
       </div>
-      <div class="grid grid--3">
-        <div class="card card--glass card--glow fade-in">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
-          </div>
-          <h3>Platform Chassis</h3>
-          <p>Real products, live in the field — VOSS, GRYD, Drillr, Tymr. Not demos. Every engagement starts from a proven chassis, so nobody starts from zero.</p>
-          <a href="products.html" class="card__link">See the platforms →</a>
-        </div>
-        <div class="card card--glass card--glow fade-in">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h3>Forward-Deployed Engineering</h3>
-          <p>An engineer embeds with your team to learn how your work actually flows — then adapts the platform around it. Not configuration. Not a requirements document thrown over a wall.</p>
-          <a href="services.html" class="card__link">How it works →</a>
-        </div>
-        <div class="card card--glass card--glow fade-in">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg>
-          </div>
-          <h3>Fork-to-Own</h3>
-          <p>When customization goes deep enough, your instance becomes its own build — your domain, your infrastructure, your workflows. At any point, you can buy it outright. It's yours.</p>
-          <a href="services.html#ladder" class="card__link">The offer ladder →</a>
-        </div>
+    </section>
+    <div class="domains"><div class="container"><span>Clinical documentation</span><span>Environmental compliance</span><span>Geotechnical fieldwork</span><span>Workforce time</span></div></div>
+    <section class="home-platforms container" id="platforms" aria-labelledby="platforms-title">
+      <div class="home-section-heading"><h2 id="platforms-title">Built for the work.</h2><span class="eyebrow">01—04 / Our platforms</span></div>
+      <div class="platform-grid">
+        <article class="platform-summary"><h3><a href="products.html#voss">VOSS <span aria-hidden="true">↗</span></a></h3><p>From patient encounter to a clinician-reviewed note.</p><span>Clinical documentation</span></article>
+        <article class="platform-summary"><h3><a href="products.html#drillr">Drillr <span aria-hidden="true">↗</span></a></h3><p>Borehole logs from the field, even when you’re offline.</p><span>Geotechnical logging</span></article>
+        <article class="platform-summary"><h3><a href="products.html#gryd">GRYD <span aria-hidden="true">↗</span></a></h3><p>Regulatory screening, inside the workbook you use.</p><span>Environmental analysis</span></article>
+        <article class="platform-summary"><h3><a href="products.html#tymr">Tymr <span aria-hidden="true">↗</span></a></h3><p>Work becomes time. Time becomes clearer project costs.</p><span>Workforce intelligence</span></article>
       </div>
-    </div>
-  </section>
-
-  <!-- Products Teaser -->
-  <section class="section section--dark">
-    <hr class="section-glow-divider">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2>The Platforms</h2>
-        <p>Four products live in hard domains — proof the chassis works where regulated, field-heavy operations meet software generic SaaS can't serve.</p>
+    </section>
+    <section class="home-model" aria-labelledby="model-title">
+      <div class="container">
+        <div><span class="eyebrow">The Kalmorn model</span><h2 id="model-title">Your platform.<br> Your terms.</h2><a href="services.html#ladder" class="home-model__link">Explore the model ↗</a></div>
+        <ol class="ownership-steps">
+          <li><span>01</span><h3>Run</h3><p>Start with a proven platform.</p></li>
+          <li><span>02</span><h3>Fit</h3><p>Shape it around your team.</p></li>
+          <li><span>03</span><h3>Fork</h3><p>Make it a dedicated build.</p></li>
+          <li><span>04</span><h3>Own</h3><p>Take ownership of your instance.</p></li>
+        </ol>
       </div>
-      <div class="grid grid--4-products">
-        <div class="product-card product-card--glow fade-in">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__tag">iPhone App + Web</span>
-            <h3>VOSS</h3>
-            <p>AI clinical documentation partner for physicians. Record encounters, get live speaker-labelled transcripts, specialty-aware structured notes, and plain-language patient summaries — reviewed and signed by the clinician, on iPhone and the web.</p>
-            <a href="https://vossclinical.com" target="_blank" rel="noopener noreferrer" class="btn btn--glass btn--sm">Learn More →</a>
-          </div>
-        </div>
-        <div class="product-card product-card--drillr product-card--glow fade-in">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #0d2818 0%, #1a3a2a 50%, #0a1a10 100%);">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M4.93 4.93l2.83 2.83"></path><path d="M16.24 16.24l2.83 2.83"></path><path d="M2 12h4"></path><path d="M18 12h4"></path><path d="M4.93 19.07l2.83-2.83"></path><path d="M16.24 7.76l2.83-2.83"></path></svg>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Web Platform</span>
-            <h3>Drillr</h3>
-            <p>Offline-first borehole logging for environmental and geotechnical geologists. Capture stratigraphy, monitoring wells, and samples with zero connectivity — or dictate the log out loud — then export PDF logs, cross-sections, and site figures in one tap.</p>
-            <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer" class="btn btn--glass btn--sm">Learn More →</a>
-          </div>
-        </div>
-        <div class="product-card product-card--glow fade-in">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #0a2e1a 0%, #1a3a2a 100%);">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Excel Add-in</span>
-            <h3>GRYD</h3>
-            <p>Smarter analysis, faster remediation. GRYD screens lab data against regulatory guidelines, flags exceedances, and answers questions through an AI co-pilot — inside the Excel workbooks environmental teams already live in.</p>
-            <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer" class="btn btn--glass btn--sm">Learn More →</a>
-          </div>
-        </div>
-        <div class="product-card product-card--glow fade-in">
-          <div class="product-card__image" style="background: linear-gradient(135deg, #1a1a0a 0%, #2a2510 50%, #1a1a0a 100%);">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#F5C842" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <div class="product-card__body">
-            <span class="product-card__tag">Enterprise SaaS</span>
-            <h3><span style="color: var(--white);">Ty</span><span style="color: #6DB33F;">mr</span></h3>
-            <p>Timesheets that fill themselves. Tymr drafts everyone's time from the tools where work already happens — humans and AI agents on one ledger — and turns it into capacity, true project cost, and audit-ready regulatory cuts.</p>
-            <a href="products.html#tymr" class="btn btn--glass btn--sm">Learn More →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Offer Ladder -->
-  <section class="section section--off-white">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2>Start Anywhere. Climb When You're Ready.</h2>
-        <p>Every customer enters wherever they want — and every tier is a step toward owning the software your business runs on.</p>
-      </div>
-      <div class="grid grid--4">
-        <div class="card card--glow tier-card fade-in">
-          <div class="tier-card__num">Tier 1</div>
-          <h3>Run</h3>
-          <p>The standard platform, your data, your settings. Live from day one.</p>
-          <span class="tier-card__shape">Subscription</span>
-        </div>
-        <div class="card card--glow tier-card fade-in">
-          <div class="tier-card__num">Tier 2</div>
-          <h3>Fit</h3>
-          <p>Features built for you on the shared platform, scoped through embedded discovery.</p>
-          <span class="tier-card__shape">Subscription + build fees</span>
-        </div>
-        <div class="card card--glow tier-card fade-in">
-          <div class="tier-card__num">Tier 3</div>
-          <h3>Fork</h3>
-          <p>A dedicated instance on your own domain, rebuilt around your processes.</p>
-          <span class="tier-card__shape">Deployment fee + subscription</span>
-        </div>
-        <div class="card card--glow tier-card tier-card--own fade-in">
-          <div class="tier-card__num">Tier 4</div>
-          <h3>Own</h3>
-          <p>Buy your forked instance outright. Your customizations stay proprietary to you — never fed back into our product.</p>
-          <span class="tier-card__shape">One-time transfer + optional retainer</span>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 40px;" class="fade-in">
-        <a href="services.html#ladder" class="btn btn--outline">Explore the Model →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats / Trust Strip -->
-  <section class="section">
-    <div class="container">
-      <div class="stats fade-in">
-        <div>
-          <div class="stat__number" data-count="4" data-suffix="">0</div>
-          <div class="stat__label">Platforms Live</div>
-        </div>
-        <div>
-          <div class="stat__number" data-count="100" data-suffix="%">0</div>
-          <div class="stat__label">Canadian Owned</div>
-        </div>
-        <div>
-          <div class="stat__number" data-count="4" data-suffix="">0</div>
-          <div class="stat__label">Regulated Domains</div>
-        </div>
-        <div>
-          <div class="stat__number">Yours</div>
-          <div class="stat__label">What We Build for You</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="cta-banner">
-    <div class="container fade-in">
-      <h2>Tell Us Where Your Operation Hurts</h2>
-      <p>Run a platform, fit it to your team, fork it onto your domain — or own it outright. The conversation starts the same way.</p>
-      <a href="mailto:info@kalmorn.com?subject=Kalmorn%20Tech%20%E2%80%94%20Let%27s%20Build%20Something&body=Hi%20Kalmorn%20team%2C%0A%0AI%27d%20like%20to%20talk%20about%20a%20project%20or%20idea.%0A%0AAbout%20me%2Fmy%20company%3A%20%0AWhat%20I%27m%20trying%20to%20build%3A%20%0ATimeline%3A%20%0A%0AThanks%21" class="btn btn--dark btn--lg">Get In Touch →</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
+    </section>
+    <section class="home-contact container" aria-labelledby="contact-title"><h2 id="contact-title">What’s slowing your operation down?</h2><a href="contact.html">Let’s talk about it ↗</a></section>
+  </main>
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div class="footer__brand">
-          <a href="index.html" class="navbar__logo"><span>K</span>ALMORN</a>
-          <p>A Canadian platform company for regulated, field-heavy industries. We deploy operational platforms, adapt them to how you work, and offer a path to owning the result.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <a href="services.html">Services</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer__col">
-          <h4>Platforms</h4>
-          <a href="products.html#voss">VOSS</a>
-          <a href="https://drillr.ca" target="_blank" rel="noopener noreferrer">Drillr</a>
-          <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a>
-          <a href="products.html#tymr">Tymr</a>
-          <a href="https://vossclinical.com" target="_blank" rel="noopener noreferrer">VOSS Website</a>
-          <a href="https://apps.apple.com/ca/app/voss-neuro/id6759835982" target="_blank" rel="noopener noreferrer">VOSS on the App Store</a>
-        </div>
-        <div class="footer__col">
-          <h4>Connect</h4>
-          <a href="mailto:info@kalmorn.com">info@kalmorn.com</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Twitter</a>
-        </div>
+        <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Proven platforms for complex operations. Adapted to your team. With a path to making the software your own.</p></div>
+        <div class="footer__col"><h4>Company</h4><a href="services.html">Our approach</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></div>
+        <div class="footer__col"><h4>Platforms</h4><a href="products.html#voss">VOSS</a><a href="products.html#drillr">Drillr</a><a href="products.html#gryd">GRYD</a><a href="products.html#tymr">Tymr</a></div>
+        <div class="footer__col"><h4>Start a conversation</h4><a href="mailto:info@kalmorn.com">info@kalmorn.com</a><a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer">VOSS support ↗</a><a href="https://vossclinical.com/privacy" target="_blank" rel="noopener noreferrer">VOSS privacy ↗</a></div>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Kalmorn Tech Ltd. All rights reserved.</p>
-        <p>Built in Canada 🍁</p>
-      </div>
+      <div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd.</p><p>Canadian owned. Independently built.</p></div>
     </div>
   </footer>
-
-  <script src="js/main.js"></script>
-  <script src="js/balloons.js"></script>
 </body>
 </html>
