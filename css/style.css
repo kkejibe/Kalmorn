@@ -1057,6 +1057,72 @@ input:focus,select:focus,textarea:focus {
   margin:0;
 }
 
+/* Careers shares the same field proportions and responsive form layout. */
+.careers-header .btn {
+  margin-top:30px;
+}
+
+.career-areas {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:36px;
+}
+
+.career-areas article {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+
+.career-areas h3 {
+  font-size:1.6rem;
+  margin-bottom:20px;
+}
+
+.career-areas p {
+  font-size:.92rem;
+  margin-bottom:24px;
+}
+
+.career-areas .text-link {
+  margin-top:auto;
+}
+
+.careers-panel {
+  background:var(--paper);
+}
+
+.careers-panel input,.careers-panel select,.careers-panel textarea {
+  background-color:#fff;
+}
+
+.careers-next {
+  margin-top:40px;
+}
+
+.careers-next h3,.careers-referral h3 {
+  font-size:1.15rem;
+  line-height:1.4;
+}
+
+.careers-referral {
+  margin-top:32px;
+  padding-top:24px;
+  border-top:1px solid #bdcbb1;
+}
+
+.careers-referral p {
+  font-size:.88rem;
+  margin-top:12px;
+}
+
+.careers-form-help {
+  font-size:.8rem;
+  line-height:1.7;
+}
+
 /* Insights and retained article compatibility */
 .insight-grid {
   display:grid;
@@ -1599,6 +1665,10 @@ input:focus,select:focus,textarea:focus {
   }
   .grid--2,.grid--3 {
     grid-template-columns:1fr;
+  }
+  .career-areas {
+    grid-template-columns:1fr;
+    gap:32px;
   }
   .desktop-break {
     display:none;

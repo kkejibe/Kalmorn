@@ -32,6 +32,7 @@ Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to use an installed Chromium browser. 
 - `quadrat.html`: six developing service areas, Call Assistance under evaluation, initial regional coverage, and service model.
 - `services.html`: field services, environmental technology, and engagement approach.
 - `contact.html`: direct email and a project inquiry composer.
+- `careers.html`: expressions of interest for field, environmental, technology, and business opportunities, with a structured email introduction.
 - `blog.html`, `blog-*.html`: environmental insights and retained historical articles.
 - `css/style.css`: shared design, responsive layouts, navigation, footer, and page styles.
 - `css/home.css`: homepage composition.
@@ -46,6 +47,8 @@ Shared navigation and footers are static HTML in each page. Keep their labels an
 Quadrat’s public content reflects the November 7, 2026 draft meeting minutes. It describes developing services and distinguishes Call Assistance as a concept under evaluation. Private meeting details, internal rates, ownership discussions, and prospective client relationships are not included. Confirm readiness before changing availability language or adding operating claims.
 
 The contact form prepares a `mailto:` draft in the visitor’s email app. It does not submit to a server, store data, or promise delivery. A copyable draft and direct email address provide a fallback when no mail app is configured. Product inquiry links preselect the relevant option.
+
+Careers introductions use the same company inbox, `info@kalmorn.com`, with a `Careers` subject for easy identification. The form collects name, email, city/region, area of interest, optional availability, and a short introduction into an email draft. Candidates attach résumés in their own email app. There is no website upload, applicant database, or automatic submission; the email becomes the record only after the candidate sends it. The page welcomes future opportunities without advertising specific vacancies.
 
 VOSS is no longer listed in the portfolio or shared navigation. Historical articles are marked as archive content and state that VOSS operates independently. Existing VOSS support and privacy redirects are retained for old links.
 

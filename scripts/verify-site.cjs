@@ -26,6 +26,7 @@ const { createServer } = require('./serve.cjs');
         assert.equal(await page.locator('h1').count(), 1, `${route}: one page heading`);
         assert.equal(await page.locator('main').count(), 1, `${route}: main landmark`);
         assert.equal(await page.locator('nav [aria-current="page"]').count(), 1, `${route}: current navigation`);
+        assert.equal(await page.locator('#primary-navigation a[href="careers.html"]').count(), 1, `${route}: Careers is in the menu`);
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
         assert.equal(overflow, false, `${route}: horizontal overflow at ${width}px`);
         const heading = await page.locator('h1').evaluate(el => getComputedStyle(el).opacity);
@@ -57,6 +58,7 @@ const { createServer } = require('./serve.cjs');
     assert.equal(await page.locator('#primary-navigation').isVisible(), false);
     await menu.click();
     await page.locator('#primary-navigation').getByRole('link', { name: 'Solutions', exact: true }).click();
+    await page.waitForURL('**/products.html');
     assert.ok(page.url().endsWith('/products.html'));
 
     await page.setViewportSize({ width: 1280, height: 1000 });
@@ -93,6 +95,33 @@ const { createServer } = require('./serve.cjs');
     await page.goto(`${origin}/contact.html?interest=unknown`);
     assert.equal(await page.locator('#interest').inputValue(), 'quadrat', 'Unrecognized inquiry values use the default');
 
+    // Prospects can follow an interest link and prepare a complete introduction.
+    await page.goto(`${origin}/careers.html`);
+    await page.getByRole('link', {name:'Explore field opportunities'}).click();
+    await page.waitForURL('**/careers.html?area=field#introduce-yourself');
+    assert.equal(await page.locator('#career-area').inputValue(), 'field');
+    await page.locator('#careers-form button').click();
+    assert.equal(await page.locator('#careers-fallback').isVisible(), false, 'An incomplete introduction cannot be prepared');
+    await page.locator('#candidate-name').fill('Morgan & Team');
+    await page.locator('#candidate-email').fill('invalid-email');
+    await page.locator('#candidate-location').fill('Calgary, Alberta');
+    await page.locator('#candidate-background').fill('Interested in field sampling & logistics.');
+    await page.locator('#careers-form button').click();
+    assert.equal(await page.locator('#careers-fallback').isVisible(), false, 'Invalid email is rejected');
+    await page.locator('#candidate-email').fill('morgan@example.com');
+    await page.locator('#candidate-availability').fill('Seasonal / contract');
+    await page.locator('#careers-form button').click();
+    const introduction = await page.locator('#careers-draft').inputValue();
+    assert.match(introduction, /To: info@kalmorn.com/);
+    assert.match(introduction, /Subject: Careers — Field & logistics — Morgan & Team/);
+    assert.match(introduction, /Email: morgan@example.com/);
+    assert.match(introduction, /City \/ region: Calgary, Alberta/);
+    assert.match(introduction, /Availability: Seasonal \/ contract/);
+    assert.match(introduction, /Interested in field sampling & logistics/);
+    assert.match(await page.locator('#careers-status').innerText(), /Nothing has been sent/);
+    await page.goto(`${origin}/careers.html?area=unknown`);
+    assert.equal(await page.locator('#career-area').inputValue(), 'general');
+
     const touch = await browser.newPage({viewport:{width:390,height:1000},hasTouch:true,reducedMotion:'reduce'});
     await touch.goto(origin);
     assert.equal(await touch.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), 'auto');
@@ -107,11 +136,14 @@ const { createServer } = require('./serve.cjs');
     await noJS.goto(`${origin}/contact.html`);
     assert.equal(await noJS.locator('noscript').isVisible(),true,'Direct email remains available without JS');
     assert.equal(await noJS.locator('#inquiry-form').isVisible(),false,'Inactive composer is hidden without JS');
+    await noJS.goto(`${origin}/careers.html`);
+    assert.equal(await noJS.locator('#careers-form').isVisible(),false);
+    assert.equal(await noJS.locator('noscript').getByRole('link', {name:'info@kalmorn.com'}).isVisible(),true,'Careers remains reachable by email without JS');
 
     if (process.env.SCREENSHOT_DIR) {
       fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});
       await page.setViewportSize({width:1440,height:1000});
-      for (const route of ['index.html','services.html','products.html','quadrat.html','blog.html','contact.html']) {
+      for (const route of ['index.html','services.html','products.html','quadrat.html','blog.html','contact.html','careers.html']) {
         await page.goto(`${origin}/${route}`);
         await page.evaluate(()=>document.fonts.ready);
         await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,route.replace('.html','.png')),fullPage:true});
@@ -119,13 +151,13 @@ const { createServer } = require('./serve.cjs');
     }
     if (process.env.SCREENSHOT_DIR) {
       await page.setViewportSize({width:390,height:844});
-      for (const route of ['index.html','quadrat.html','contact.html']) {
+      for (const route of ['index.html','quadrat.html','contact.html','careers.html']) {
         await page.goto(`${origin}/${route}`);
         await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,route.replace('.html','-mobile.png')),fullPage:true});
       }
     }
     assert.deepEqual(errors, []);
-    console.log(`Verified ${routes.length} pages at 4 viewport sizes, ${links.size} local links, navigation, portfolio ordering, Quadrat content, inquiry composition, no-JS content, and touch/reduced-motion behavior.`);
+    console.log(`Verified ${routes.length} pages at 4 viewport sizes, ${links.size} local links, navigation, portfolio ordering, Quadrat content, project and careers email composition, no-JS content, and touch/reduced-motion behavior.`);
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));

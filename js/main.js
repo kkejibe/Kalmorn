@@ -52,6 +52,28 @@ document.documentElement.classList.add('js');
 
 /* Inquiry composer: prepare a local email draft, never imply server delivery. */
 (() => {
+  function prepareEmail(prefix, subject, body) {
+    document.querySelector(`#${prefix}-draft`).value = `To: info@kalmorn.com\nSubject: ${subject}\n\n${body}`;
+    document.querySelector(prefix === 'inquiry' ? '#email-fallback' : '#careers-fallback').hidden = false;
+    document.querySelector(`#${prefix}-status`).textContent = 'Your draft is ready. Send it from your email app, or copy the draft below. Nothing has been sent from this website.';
+    location.href = `mailto:info@kalmorn.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  const careers = document.querySelector('#careers-form');
+  if (careers) {
+    const area = careers.elements.area;
+    const requestedArea = new URLSearchParams(location.search).get('area');
+    if ([...area.options].some(option => option.value === requestedArea)) area.value = requestedArea;
+    careers.addEventListener('submit', event => {
+      event.preventDefault();
+      const values = careers.elements;
+      const focus = area.selectedOptions[0].textContent;
+      const subject = `Careers — ${focus} — ${values.candidateName.value.trim()}`;
+      const body = `Hello Kalmorn team,\n\nI’d like to introduce myself for future opportunities with Kalmorn or Quadrat Services.\n\nName: ${values.candidateName.value.trim()}\nEmail: ${values.candidateEmail.value.trim()}\nCity / region: ${values.candidateLocation.value.trim()}\nArea of interest: ${focus}\nAvailability: ${values.availability.value.trim() || 'Not specified'}\n\nExperience and interests:\n${values.background.value.trim()}\n\nPlease contact me about relevant opportunities.\n`;
+      prepareEmail('careers', subject, body);
+    });
+  }
+
   const form = document.querySelector('#inquiry-form');
   if (!form) return;
   const interest = form.elements.interest;
@@ -61,9 +83,6 @@ document.documentElement.classList.add('js');
     event.preventDefault();
     const subject = `Kalmorn inquiry — ${interest.selectedOptions[0].textContent}`;
     const body = `Hello Kalmorn team,\n\n${form.elements.details.value.trim()}\n\nName: ${form.elements.name.value.trim()}\nOrganization: ${form.elements.company.value.trim() || 'Not specified'}\nInterest: ${interest.selectedOptions[0].textContent}\n`;
-    document.querySelector('#inquiry-draft').value = `To: info@kalmorn.com\nSubject: ${subject}\n\n${body}`;
-    document.querySelector('#email-fallback').hidden = false;
-    document.querySelector('#inquiry-status').textContent = 'Your draft is ready. Send it from your email app, or copy the draft below. Nothing has been sent from this website.';
-    location.href = `mailto:info@kalmorn.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    prepareEmail('inquiry', subject, body);
   });
 })();
