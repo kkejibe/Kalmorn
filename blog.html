@@ -1,149 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kalmorn Tech blog - Insights on software development, technology consulting, healthcare tech, and environmental analytics.">
-  <title>Blog | Kalmorn Tech Ltd.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <!-- Navbar -->
-  <nav class="navbar" aria-label="Main navigation">
-    <div class="container">
-      <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
-      <div class="navbar__links" id="primary-navigation">
-        <a href="index.html">Home</a>
-        <a href="products.html">Platforms</a>
-        <a href="services.html">Our approach</a>
-        <a href="blog.html" aria-current="page" class="active">Journal</a>
-        <a href="contact.html" class="navbar__contact">Let’s talk ↗</a>
-      </div>
-      <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-
-  <main id="main-content" tabindex="-1">
-
-  <!-- Page Header -->
-  <section class="page-header"><div class="container"><span class="eyebrow">The journal</span><h1>Notes from the work.</h1><p>Ideas, lessons, and stories from building software for complex industries.</p></div></section>
-
-  <!-- Blog Posts Grid -->
-  <section class="section">
-    <div class="container">
-      <div class="grid grid--3">
-
-        <!-- Blog Post 1 -->
-        <article class="blog-card fade-in">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-          </div>
-          <div class="blog-card__body">
-            <p class="blog-card__date">February 5, 2026</p>
-            <h3>Digitizing Neurological Examinations: The Story Behind VOSS</h3>
-            <p>A neurologist's biggest frustration wasn't the diagnosis &mdash; it was the paperwork after. That conversation sparked VOSS: a clinical examination tool for the iPhone. From whiteboard sketch to working prototype in four months.</p>
-            <a href="blog-voss-story.html" class="blog-card__link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 2 -->
-        <article class="blog-card fade-in">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          </div>
-          <div class="blog-card__body">
-            <p class="blog-card__date">January 20, 2026</p>
-            <h3>47 Parameters, 12 Monitoring Wells, One Spreadsheet &mdash; What Could Go Wrong?</h3>
-            <p>Manually checking lab results against Tier 1 guidelines at 11 p.m. before a deadline? One missed exceedance and you're explaining audit findings to a regulator. We built <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a> to catch what spreadsheets can't.</p>
-            <a href="blog-environmental-reporting.html" class="blog-card__link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 3 -->
-        <article class="blog-card fade-in">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-          </div>
-          <div class="blog-card__body">
-            <p class="blog-card__date">January 8, 2026</p>
-            <h3>Building Products and Billing Hours: How We Balance Both</h3>
-            <p>It's not a balance &mdash; it's a feedback loop. Consulting puts us in rooms where the pain is. Products let us scale what we learn. The tricky part is knowing when to say no to billable work.</p>
-            <a href="blog-consulting-products.html" class="blog-card__link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 4 -->
-        <article class="blog-card fade-in">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <div class="blog-card__body">
-            <p class="blog-card__date">December 15, 2025</p>
-            <h3>Security-First Development: What It Actually Looks Like in Healthcare</h3>
-            <p>When you're building an app that handles real patient data, "we take security seriously" has to mean something specific. Zero-knowledge architecture, on-device storage, every API call treated as hostile. The real decisions behind VOSS's security &mdash; not the buzzwords.</p>
-            <a href="blog-healthcare-security.html" class="blog-card__link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 5 -->
-        <article class="blog-card fade-in">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <div class="blog-card__body">
-            <p class="blog-card__date">December 1, 2025</p>
-            <h3>From Idea to App Store: What Nobody Tells You About the Middle Part</h3>
-            <p>Six weeks debugging offline sync. An App Store rejection over screenshot dimensions. A third redesign because a screen didn't "feel right." The middle is where most products die. We shipped VOSS through it anyway.</p>
-            <a href="blog-idea-to-app-store.html" class="blog-card__link">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Blog Post 6 -->
-        <article class="blog-card fade-in">
-          <div class="blog-card__image" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          </div>
-          <div class="blog-card__body">
-            <p class="blog-card__date">November 18, 2025</p>
-            <h3>Why We Built an Environmental Intelligence Platform Inside Excel</h3>
-            <p>Environmental consultants live in Excel. Their data arrives in spreadsheets, reports get built in spreadsheets, clients expect spreadsheets. So <a href="https://www.grydlogic.com" target="_blank" rel="noopener noreferrer">GRYD</a> meets them where they are &mdash; without ever leaving the workbook.</p>
-            <a href="blog-excel-plugins.html" class="blog-card__link">Read More →</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="cta-banner">
-    <div class="container fade-in">
-      <h2>Stay in the Loop</h2>
-      <p>Want to hear about new posts and product updates? Reach out and we'll keep you informed.</p>
-      <a href="mailto:info@kalmorn.com?subject=Kalmorn%20Blog%20%E2%80%94%20Stay%20in%20the%20Loop&body=Hi%20Kalmorn%20team%2C%0A%0AI%27d%20like%20to%20stay%20updated%20on%20new%20posts%20and%20product%20releases.%0A%0AName%3A%20%0ATopics%20I%27m%20most%20interested%20in%3A%20%0A%0AThanks%21" class="btn btn--dark btn--lg">Contact Us →</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Proven platforms for complex operations. Adapted to your team. With a path to making the software your own.</p></div>
-        <div class="footer__col"><h4>Company</h4><a href="services.html">Our approach</a><a href="blog.html">Journal</a><a href="contact.html">Contact</a></div>
-        <div class="footer__col"><h4>Platforms</h4><a href="products.html#voss">VOSS</a><a href="products.html#drillr">Drillr</a><a href="products.html#gryd">GRYD</a><a href="products.html#tymr">Tymr</a></div>
-        <div class="footer__col"><h4>Start a conversation</h4><a href="mailto:info@kalmorn.com">info@kalmorn.com</a><a href="https://vossclinical.com/contact" target="_blank" rel="noopener noreferrer">VOSS support ↗</a><a href="https://vossclinical.com/privacy" target="_blank" rel="noopener noreferrer">VOSS privacy ↗</a></div>
-      </div>
-      <div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd.</p><p>Canadian owned. Independently built.</p></div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+<html lang="en"><head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Perspectives on environmental reporting, data analysis, and practical technology from Kalmorn Tech.">
+ <meta name="theme-color" content="#172e25"><meta property="og:title" content="Insights | Kalmorn Tech"><meta property="og:description" content="Perspectives on environmental reporting, data analysis, and practical technology from Kalmorn Tech."><meta property="og:type" content="website">
+ <title>Insights | Kalmorn Tech</title>
+ <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+ <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/style.css">
+ <script src="js/main.js" defer></script>
+</head><body><a class="skip-link" href="#main-content">Skip to content</a>
+ <nav class="navbar" aria-label="Main navigation"><div class="container">
+ <a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a>
+ <div class="navbar__links" id="primary-navigation"><a href="index.html" class="">Home </a><a href="products.html" class="">Solutions </a><a href="services.html" class="">Services </a><a href="blog.html" class="" aria-current="page">Insights </a><a href="contact.html" class="navbar__contact">Talk to us <span aria-hidden="true">↗</span></a></div>
+ <button class="navbar__hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+ </div></nav><main id="main-content" tabindex="-1"><section class="page-header"><div class="container"><span class="eyebrow">Kalmorn insights</span><h1>Notes from<br> the working day.</h1><p>Ideas and practical perspectives on environmental data, field workflows, and building useful technology.</p></div></section><section class="section"><div class="container insight-grid"><article class="insight-card"><a href="blog-environmental-reporting.html" tabindex="-1" aria-hidden="true"><img src="assets/images/env-monitoring-wells.webp" alt="" loading="lazy" width="1920" height="1072"></a><span class="eyebrow">Environmental data / January 20, 2026</span><h2><a href="blog-environmental-reporting.html">47 parameters. 12 monitoring wells. One spreadsheet.</a></h2><p>What manual data review means for environmental reporting, and where better tools can help.</p><a class="text-link" href="blog-environmental-reporting.html">Read the story <span aria-hidden="true">↗</span></a></article><article class="insight-card"><a href="blog-excel-plugins.html" tabindex="-1" aria-hidden="true"><img src="assets/images/env-data-analysis.webp" alt="" loading="lazy" width="1920" height="1047"></a><span class="eyebrow">Technology / November 18, 2025</span><h2><a href="blog-excel-plugins.html">Environmental intelligence, inside the workbook.</a></h2><p>Why GRYD starts with the Excel workflow environmental teams already know.</p><a class="text-link" href="blog-excel-plugins.html">Read the story <span aria-hidden="true">↗</span></a></article></div></section>
+ <section class="section section--sage"><div class="container"><div class="section-heading"><div><span class="eyebrow">From the archive</span><h2>Lessons from building.</h2></div><p>Earlier stories from Kalmorn’s product work.<br> VOSS now operates as an independent company.</p></div><div class="archive-links"><a href="blog-consulting-products.html"><span>January 8, 2026</span><h3>Building products and billing hours</h3><span aria-hidden="true">↗</span></a><a href="blog-voss-story.html"><span>February 5, 2026</span><h3>The story behind VOSS</h3><span aria-hidden="true">↗</span></a><a href="blog-healthcare-security.html"><span>December 15, 2025</span><h3>Security-first development in healthcare</h3><span aria-hidden="true">↗</span></a><a href="blog-idea-to-app-store.html"><span>December 1, 2025</span><h3>From idea to App Store</h3><span aria-hidden="true">↗</span></a></div></div></section><section class="cta-banner"><div class="container"><div><span class="eyebrow">Start a conversation</span><h2>Let’s move your next project forward.</h2><p>Tell us what you’re working on. We’ll help you find the right services, the right technology, or both.</p></div><a class="btn btn--primary" href="contact.html">Talk to our team <span aria-hidden="true">↗</span></a></div></section></main><footer class="footer"><div class="container"><div class="footer__grid">
+ <div class="footer__brand"><a href="index.html" class="navbar__logo" aria-label="Kalmorn home"><span>K</span>ALMORN</a><p>Environmental technology and services.<br> Grounded in the work. Built for what’s next.</p></div>
+ <div class="footer__col"><h2>Explore</h2><a href="products.html">Our solutions</a><a href="services.html">Our services</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
+ <div class="footer__col portfolio-links"><h2>Our portfolio</h2><a href="products.html#quadrat">Quadrat Services</a><a href="products.html#gryd">GRYD</a><a href="products.html#drillr">Drillr</a><a href="products.html#tymr">Tymr</a></div>
+ <div class="footer__col"><h2>Let’s connect</h2><a href="mailto:info@kalmorn.com">info@kalmorn.com ↗</a><p>Canadian owned.<br> Built for environmental teams.</p></div>
+ </div><div class="footer__bottom"><p>© 2026 Kalmorn Tech Ltd. All rights reserved.</p><p>Field services. Connected technology.</p></div></div></footer></body></html>

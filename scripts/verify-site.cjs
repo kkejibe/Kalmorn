@@ -56,53 +56,76 @@ const { createServer } = require('./serve.cjs');
     assert.equal(await menu.getAttribute('aria-expanded'), 'false');
     assert.equal(await page.locator('#primary-navigation').isVisible(), false);
     await menu.click();
-    await page.locator('#primary-navigation').getByRole('link', { name: 'Platforms', exact: true }).click();
+    await page.locator('#primary-navigation').getByRole('link', { name: 'Solutions', exact: true }).click();
     assert.ok(page.url().endsWith('/products.html'));
 
     await page.setViewportSize({ width: 1280, height: 1000 });
     await page.goto(origin);
-    const wordmark = await page.locator('.navbar__logo').first().evaluate(el => ({text:getComputedStyle(el).color,k:getComputedStyle(el.firstElementChild).color}));
-    assert.deepEqual(wordmark, {text:'rgb(255, 255, 255)',k:'rgb(0, 200, 83)'});
-    await page.getByRole('button', { name: 'Pause motion', exact: true }).click();
-    const first = page.getByRole('button', {name:'Pop balloon 1',exact:true});
-    const position = await first.getAttribute('style');
-    await page.waitForTimeout(150);
-    assert.equal(await first.getAttribute('style'), position, 'Pause freezes the balloons');
-    const target = await first.boundingBox();
-    await page.mouse.move(target.x + target.width / 2, target.y + target.height / 2);
-    assert.equal(await page.locator('#balloon-field').getAttribute('data-pops'), '1');
-    await page.mouse.move(0,0);
-    await page.getByRole('button',{name:'Pop balloon 2',exact:true}).focus();
-    await page.keyboard.press('Enter');
-    assert.equal(await page.locator('#balloon-field').getAttribute('data-pops'), '2');
-    await first.waitFor({state:'visible',timeout:4000});
-    assert.equal(await page.locator('.balloon-hit').count(),9,'Popping reuses the balloon controls');
-    await page.getByRole('button',{name:'Resume motion',exact:true}).click();
-    const movingPosition = await first.getAttribute('style');
-    await page.waitForTimeout(150);
-    assert.notEqual(await first.getAttribute('style'),movingPosition,'Resume restarts the balloons');
+    assert.match(await page.locator('main').innerText(), /Environmental technology & services/i);
+    assert.deepEqual(await page.locator('.portfolio-strip strong').allTextContents(), ['Quadrat Services', 'GRYD', 'Drillr', 'Tymr']);
+    assert.equal(await page.locator('main').getByText('VOSS', {exact:true}).count(), 0);
+    await page.goto(`${origin}/products.html`);
+    assert.deepEqual(await page.locator('main section[id]').evaluateAll(nodes => nodes.map(node => node.id)), ['quadrat', 'gryd', 'drillr', 'tymr']);
+    assert.match(await page.locator('#tymr').innerText(), /environmental project management system/i);
+    assert.equal(await page.locator('a[href*="#voss"]').count(), 0);
+    await page.goto(`${origin}/quadrat.html`);
+    assert.equal(await page.locator('.service-card').count(), 6);
+    assert.match(await page.locator('#call-assistance').innerText(), /under evaluation|being evaluated/i);
+    assert.match(await page.locator('.coverage-strip').innerText(), /Northeastern British Columbia/);
+    assert.equal(await page.locator('main').getByText('Summit Earth', {exact:false}).count(), 0);
 
-    const touch = await browser.newPage({viewport:{width:390,height:1400},hasTouch:true,reducedMotion:'reduce'});
+    // Exercise the actual CTA-to-inquiry path, validation, and honest email fallback.
+    await page.goto(`${origin}/products.html#tymr`);
+    await page.locator('#tymr').getByRole('link', {name:'Request a demo'}).click();
+    assert.equal(await page.locator('#interest').inputValue(), 'tymr');
+    await page.locator('#inquiry-form button').click();
+    assert.equal(await page.locator('#email-fallback').isVisible(), false, 'Required fields prevent an empty draft');
+    await page.locator('#name').fill('Alex & Team');
+    await page.locator('#company').fill('Environmental Example');
+    await page.locator('#details').fill('Project near Edmonton. Need capacity & cost visibility.');
+    await page.locator('#inquiry-form button').click();
+    assert.equal(await page.locator('#email-fallback').isVisible(), true);
+    const draft = await page.locator('#inquiry-draft').inputValue();
+    assert.match(draft, /Interest: Tymr/);
+    assert.match(draft, /Alex & Team/);
+    assert.match(draft, /capacity & cost visibility/);
+    assert.match(await page.locator('#inquiry-status').innerText(), /Nothing has been sent/);
+    await page.goto(`${origin}/contact.html?interest=unknown`);
+    assert.equal(await page.locator('#interest').inputValue(), 'quadrat', 'Unrecognized inquiry values use the default');
+
+    const touch = await browser.newPage({viewport:{width:390,height:1000},hasTouch:true,reducedMotion:'reduce'});
     await touch.goto(origin);
-    assert.equal(await touch.getByRole('button',{name:'Motion reduced'}).isDisabled(),true);
-    await touch.getByRole('button',{name:'Pop balloon 5',exact:true}).tap();
-    assert.equal(await touch.locator('#balloon-field').getAttribute('data-pops'),'1','Touch works with reduced motion');
+    assert.equal(await touch.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior), 'auto');
+    await touch.locator('.navbar__hamburger').tap();
+    await touch.locator('#primary-navigation').getByRole('link',{name:'Services',exact:true}).tap();
+    await touch.waitForURL('**/services.html');
+    assert.ok(touch.url().endsWith('/services.html'));
     const noJS = await browser.newPage({viewport:{width:390,height:1000},javaScriptEnabled:false});
     await noJS.goto(`${origin}/services.html`);
-    assert.equal(await noJS.locator('.alt-section__content').first().isVisible(),true);
+    assert.equal(await noJS.locator('.service-paths').isVisible(),true);
     assert.equal(await noJS.locator('#primary-navigation').isVisible(),true,'Navigation is usable without JS');
+    await noJS.goto(`${origin}/contact.html`);
+    assert.equal(await noJS.locator('noscript').isVisible(),true,'Direct email remains available without JS');
+    assert.equal(await noJS.locator('#inquiry-form').isVisible(),false,'Inactive composer is hidden without JS');
 
     if (process.env.SCREENSHOT_DIR) {
       fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});
       await page.setViewportSize({width:1440,height:1000});
-      for (const route of ['index.html','services.html','products.html','blog.html','contact.html']) {
+      for (const route of ['index.html','services.html','products.html','quadrat.html','blog.html','contact.html']) {
         await page.goto(`${origin}/${route}`);
         await page.evaluate(()=>document.fonts.ready);
-        await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,route.replace('.html','.png')),fullPage:route==='index.html'});
+        await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,route.replace('.html','.png')),fullPage:true});
+      }
+    }
+    if (process.env.SCREENSHOT_DIR) {
+      await page.setViewportSize({width:390,height:844});
+      for (const route of ['index.html','quadrat.html','contact.html']) {
+        await page.goto(`${origin}/${route}`);
+        await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,route.replace('.html','-mobile.png')),fullPage:true});
       }
     }
     assert.deepEqual(errors, []);
-    console.log(`Verified ${routes.length} pages at 4 viewport sizes, ${links.size} local links, navigation, no-JS content, and balloon hover/touch/keyboard/pause/respawn/reduced-motion behavior.`);
+    console.log(`Verified ${routes.length} pages at 4 viewport sizes, ${links.size} local links, navigation, portfolio ordering, Quadrat content, inquiry composition, no-JS content, and touch/reduced-motion behavior.`);
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));

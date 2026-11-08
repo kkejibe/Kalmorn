@@ -4,7 +4,7 @@
   "description": "Kalmorn Tech Ltd. corporate website",
   "scripts": {
     "dev": "node scripts/serve.cjs",
-    "build": "node --check js/main.js && node --check js/balloons.js",
+    "build": "node --check js/main.js",
     "test": "node scripts/verify-site.cjs"
   },
   "devDependencies": {

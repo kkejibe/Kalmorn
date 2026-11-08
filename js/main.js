@@ -49,3 +49,21 @@ document.documentElement.classList.add('js');
     update();
   }
 })();
+
+/* Inquiry composer: prepare a local email draft, never imply server delivery. */
+(() => {
+  const form = document.querySelector('#inquiry-form');
+  if (!form) return;
+  const interest = form.elements.interest;
+  const requested = new URLSearchParams(location.search).get('interest');
+  if ([...interest.options].some(option => option.value === requested)) interest.value = requested;
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const subject = `Kalmorn inquiry — ${interest.selectedOptions[0].textContent}`;
+    const body = `Hello Kalmorn team,\n\n${form.elements.details.value.trim()}\n\nName: ${form.elements.name.value.trim()}\nOrganization: ${form.elements.company.value.trim() || 'Not specified'}\nInterest: ${interest.selectedOptions[0].textContent}\n`;
+    document.querySelector('#inquiry-draft').value = `To: info@kalmorn.com\nSubject: ${subject}\n\n${body}`;
+    document.querySelector('#email-fallback').hidden = false;
+    document.querySelector('#inquiry-status').textContent = 'Your draft is ready. Send it from your email app, or copy the draft below. Nothing has been sent from this website.';
+    location.href = `mailto:info@kalmorn.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
