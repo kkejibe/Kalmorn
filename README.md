@@ -1,4 +1,4 @@
-# Kalmorn Tech — Environmental Technology and Services
+# Kalmorn — Environmental Technology and Services
 
 The Kalmorn corporate website presents environmental services and specialist technology. The portfolio is ordered **Quadrat Services, GRYD, Drillr, Tymr**. Quadrat has a dedicated service page; Tymr is positioned as an environmental project management system.
 
