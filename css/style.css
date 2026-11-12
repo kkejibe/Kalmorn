@@ -1047,6 +1047,19 @@ input:focus,select:focus,textarea:focus {
   gap:24px;
 }
 
+#inquiry-form {
+  display:grid;
+  gap:24px;
+}
+
+.form-trap {
+  display:none;
+}
+
+.form-note a {
+  text-decoration:underline;
+}
+
 .inquiry-panel form>.btn {
   width:100%;
   min-height:52px;

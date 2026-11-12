@@ -50,7 +50,7 @@ document.documentElement.classList.add('js');
   }
 })();
 
-/* Inquiry composer: prepare a local email draft, never imply server delivery. */
+/* Careers introductions remain local email drafts. Contact inquiries use FormSubmit. */
 (() => {
   function prepareEmail(prefix, subject, body) {
     document.querySelector(`#${prefix}-draft`).value = `To: info@kalmorn.com\nSubject: ${subject}\n\n${body}`;
@@ -80,9 +80,14 @@ document.documentElement.classList.add('js');
   const requested = new URLSearchParams(location.search).get('interest');
   if ([...interest.options].some(option => option.value === requested)) interest.value = requested;
   form.addEventListener('submit', event => {
-    event.preventDefault();
-    const subject = `Kalmorn inquiry — ${interest.selectedOptions[0].textContent}`;
-    const body = `Hello Kalmorn team,\n\n${form.elements.details.value.trim()}\n\nName: ${form.elements.name.value.trim()}\nOrganization: ${form.elements.company.value.trim() || 'Not specified'}\nInterest: ${interest.selectedOptions[0].textContent}\n`;
-    prepareEmail('inquiry', subject, body);
+    for (const field of [form.elements.name, form.elements.email, form.elements.details]) {
+      field.value = field.value.trim();
+    }
+    if (!form.reportValidity()) {
+      event.preventDefault();
+      return;
+    }
+    form.elements._subject.value = `Kalmorn inquiry — ${interest.selectedOptions[0].textContent}`;
+    // Keep native POST submission so the provider can run its spam checks.
   });
 })();

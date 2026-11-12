@@ -76,22 +76,42 @@ const { createServer } = require('./serve.cjs');
     assert.match(await page.locator('.coverage-strip').innerText(), /Northeastern British Columbia/);
     assert.equal(await page.locator('main').getByText('Summit Earth', {exact:false}).count(), 0);
 
-    // Exercise the actual CTA-to-inquiry path, validation, and honest email fallback.
+    // Exercise the CTA-to-inquiry path and capture POSTs locally without sending email.
+    const submissions = [];
+    await page.route('https://formsubmit.co/**', async route => {
+      const request = route.request();
+      submissions.push({ url: request.url(), method: request.method(), fields: new URLSearchParams(request.postData()) });
+      await route.fulfill({status: 200, contentType: 'text/html', body: '<p>Submission captured by the local test.</p>'});
+    });
     await page.goto(`${origin}/products.html#tymr`);
     await page.locator('#tymr').getByRole('link', {name:'Request a demo'}).click();
+    await page.waitForURL('**/contact.html?interest=tymr#project-inquiry');
     assert.equal(await page.locator('#interest').inputValue(), 'tymr');
     await page.locator('#inquiry-form button').click();
-    assert.equal(await page.locator('#email-fallback').isVisible(), false, 'Required fields prevent an empty draft');
+    assert.equal(submissions.length, 0, 'Required fields prevent an empty submission');
     await page.locator('#name').fill('Alex & Team');
+    await page.locator('#email').fill('invalid-email');
     await page.locator('#company').fill('Environmental Example');
     await page.locator('#details').fill('Project near Edmonton. Need capacity & cost visibility.');
     await page.locator('#inquiry-form button').click();
-    assert.equal(await page.locator('#email-fallback').isVisible(), true);
-    const draft = await page.locator('#inquiry-draft').inputValue();
-    assert.match(draft, /Interest: Tymr/);
-    assert.match(draft, /Alex & Team/);
-    assert.match(draft, /capacity & cost visibility/);
-    assert.match(await page.locator('#inquiry-status').innerText(), /Nothing has been sent/);
+    assert.equal(submissions.length, 0, 'Invalid reply email is rejected');
+    await page.locator('#email').fill('alex@example.com');
+    await page.locator('#details').fill('   ');
+    await page.locator('#inquiry-form button').click();
+    assert.equal(submissions.length, 0, 'Whitespace-only project details are rejected');
+    await page.locator('#details').fill('Project near Edmonton. Need capacity & cost visibility.');
+    await page.locator('#inquiry-form button').click();
+    await page.waitForURL('https://formsubmit.co/info@kalmorn.com');
+    assert.equal(submissions.length, 1);
+    assert.equal(submissions[0].method, 'POST');
+    const inquiry = submissions[0].fields;
+    assert.equal(inquiry.get('email'), 'alex@example.com');
+    assert.equal(inquiry.get('name'), 'Alex & Team');
+    assert.equal(inquiry.get('interest'), 'tymr');
+    assert.equal(inquiry.get('_subject'), 'Kalmorn inquiry — Tymr');
+    assert.match(inquiry.get('details'), /capacity & cost visibility/);
+    assert.equal(inquiry.get('_next'), 'https://kalmorn.com/contact-thanks.html');
+    assert.notEqual(inquiry.get('_captcha'), 'false', 'Provider spam protection stays enabled');
     await page.goto(`${origin}/contact.html?interest=unknown`);
     assert.equal(await page.locator('#interest').inputValue(), 'quadrat', 'Unrecognized inquiry values use the default');
 
@@ -135,7 +155,21 @@ const { createServer } = require('./serve.cjs');
     assert.equal(await noJS.locator('#primary-navigation').isVisible(),true,'Navigation is usable without JS');
     await noJS.goto(`${origin}/contact.html`);
     assert.equal(await noJS.locator('noscript').isVisible(),true,'Direct email remains available without JS');
-    assert.equal(await noJS.locator('#inquiry-form').isVisible(),false,'Inactive composer is hidden without JS');
+    assert.equal(await noJS.locator('#inquiry-form').isVisible(),true,'Contact form is usable without JS');
+    let noJSSubmission;
+    await noJS.route('https://formsubmit.co/**', async route => {
+      noJSSubmission = new URLSearchParams(route.request().postData());
+      await route.fulfill({status:200,contentType:'text/html',body:'<p>Submission captured by the local test.</p>'});
+    });
+    await noJS.locator('#name').fill('No-script visitor');
+    await noJS.locator('#email').fill('visitor@example.com');
+    await noJS.locator('#details').fill('Checking the native HTML form.');
+    await noJS.locator('#inquiry-form button').press('Enter');
+    await noJS.waitForURL('https://formsubmit.co/info@kalmorn.com');
+    assert.equal(noJSSubmission.get('email'), 'visitor@example.com');
+    await noJS.goto(`${origin}/contact-thanks.html`);
+    assert.match(await noJS.locator('h1').innerText(), /inquiry.*submitted/s);
+    assert.equal(await noJS.locator('meta[name="robots"]').getAttribute('content'), 'noindex, follow');
     await noJS.goto(`${origin}/careers.html`);
     assert.equal(await noJS.locator('#careers-form').isVisible(),false);
     assert.equal(await noJS.locator('noscript').getByRole('link', {name:'info@kalmorn.com'}).isVisible(),true,'Careers remains reachable by email without JS');
@@ -157,7 +191,7 @@ const { createServer } = require('./serve.cjs');
       }
     }
     assert.deepEqual(errors, []);
-    console.log(`Verified ${routes.length} pages at 4 viewport sizes, ${links.size} local links, navigation, portfolio ordering, Quadrat content, project and careers email composition, no-JS content, and touch/reduced-motion behavior.`);
+    console.log(`Verified ${routes.length} pages at 4 viewport sizes, ${links.size} local links, navigation, portfolio ordering, Quadrat content, contact POST validation, careers email composition, no-JS submission, and touch/reduced-motion behavior.`);
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));
