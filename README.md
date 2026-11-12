@@ -51,6 +51,8 @@ The contact form posts over HTTPS to FormSubmit, which emails submissions to `in
 
 FormSubmit’s default reCAPTCHA remains enabled, with a hidden honeypot as an additional spam check. There are no API secrets in the site. The provider requires a one-time activation email to `info@kalmorn.com` before delivery starts. If the destination changes, activate the new address and verify delivery before publishing it. FormSubmit retains submissions for 30 days; its privacy policy is linked beside the form. See [FormSubmit documentation](https://formsubmit.co/documentation). Direct email remains available if a visitor cannot complete the form.
 
+Keep the hidden `_url` field set to the canonical contact page. Azure’s `Referrer-Policy: same-origin` omits the referrer on cross-origin submissions; FormSubmit requires `_url` in that case. This follows its [documented fix](https://formsubmit.co/help) without changing the site’s referrer policy or sharing visitor query parameters.
+
 Careers introductions use the same company inbox, `info@kalmorn.com`, with a `Careers` subject for easy identification. The form collects name, email, city/region, area of interest, optional availability, and a short introduction into an email draft. Candidates attach résumés in their own email app. There is no website upload, applicant database, or automatic submission; the email becomes the record only after the candidate sends it. The page welcomes future opportunities without advertising specific vacancies.
 
 VOSS is no longer listed in the portfolio or shared navigation. Historical articles are marked as archive content and state that VOSS operates independently. Existing VOSS support and privacy redirects are retained for old links.

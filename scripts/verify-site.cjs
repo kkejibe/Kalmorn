@@ -78,9 +78,13 @@ const { createServer } = require('./serve.cjs');
 
     // Exercise the CTA-to-inquiry path and capture POSTs locally without sending email.
     const submissions = [];
+    await page.route(`${origin}/contact.html*`, async route => {
+      const response = await route.fetch();
+      await route.fulfill({response, headers:{...response.headers(), 'referrer-policy':'same-origin'}});
+    });
     await page.route('https://formsubmit.co/**', async route => {
       const request = route.request();
-      submissions.push({ url: request.url(), method: request.method(), fields: new URLSearchParams(request.postData()) });
+      submissions.push({ url: request.url(), method: request.method(), referrer:request.headers().referer, fields: new URLSearchParams(request.postData()) });
       await route.fulfill({status: 200, contentType: 'text/html', body: '<p>Submission captured by the local test.</p>'});
     });
     await page.goto(`${origin}/products.html#tymr`);
@@ -111,6 +115,8 @@ const { createServer } = require('./serve.cjs');
     assert.equal(inquiry.get('_subject'), 'Kalmorn inquiry — Tymr');
     assert.match(inquiry.get('details'), /capacity & cost visibility/);
     assert.equal(inquiry.get('_next'), 'https://kalmorn.com/contact-thanks.html');
+    assert.equal(submissions[0].referrer, undefined, 'Azure suppresses cross-origin referrers');
+    assert.equal(inquiry.get('_url'), 'https://kalmorn.com/contact.html', 'Provider can identify the site without a referrer');
     assert.notEqual(inquiry.get('_captcha'), 'false', 'Provider spam protection stays enabled');
     await page.goto(`${origin}/contact.html?interest=unknown`);
     assert.equal(await page.locator('#interest').inputValue(), 'quadrat', 'Unrecognized inquiry values use the default');
